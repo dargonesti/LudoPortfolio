@@ -1,0 +1,145 @@
+/*eslint-disable*/
+import React from "react";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+// nodejs library that concatenates classes
+import classNames from "classnames";
+import { List, ListItem, withStyles, Select, FormControl, InputLabel } from "@material-ui/core";
+
+// @material-ui/icons
+//import Favorite from "@material-ui/icons/Favorite";
+
+import footerStyle from "assets/jss/material-kit-react/components/footerStyle.jsx";
+
+import SecuredPagesRedirect from "components/SecuredPagesRedirect/SecuredPagesRedirect.jsx";
+
+import auth from "utils/auth.js";
+import utils from "utils/utils.js";
+import localData from 'utils/DataAccess/localData';
+import impoTxt from 'texts/localization';
+
+
+class Footer extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    var selectVal = this.getSavedLanguage();
+
+    impoTxt.setLanguage(selectVal);
+
+    this.state = {
+      language: selectVal
+    };
+
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+
+  handleChange = name => event => {
+    var newVal = event.target.value;
+    this.setState({ [name]: newVal });
+    if (newVal != "") {
+      localData.setStorage("prefLang", newVal);
+      setTimeout(() => utils.callEvent("language"), 100);
+    }
+    //TODO : Comment reloader tous les texts?
+  }
+
+  getSavedLanguage() {
+    return auth.isFr() ? "fr" : "en";
+  }
+
+  render() {
+    const { classes, whiteFont } = this.props;
+
+    const footerClasses = classNames({
+      [classes.footer]: true,
+      [classes.footerWhiteFont]: whiteFont
+    });
+    const aClasses = classNames({
+      [classes.a]: true,
+      [classes.footerWhiteFont]: whiteFont
+    });
+
+    impoTxt.setLanguage(this.getSavedLanguage());
+    return (
+      <footer className={footerClasses}>
+        <div className={classes.container}>
+          <div className={classes.left}>
+            <List className={classes.list}>
+              <ListItem className={classes.inlineBlock}>
+                <a
+                  href="https://www.gnitic.com/"
+                  className={classes.block}
+                  target="_blank"
+                >
+                  Gnitic
+              </a>
+              </ListItem>
+              <ListItem className={classes.inlineBlock}>
+                <a
+                  href="/about-us"
+                  className={classes.block}
+                  target="_blank"
+                >
+                  {impoTxt.AboutUs}
+                </a>
+              </ListItem>
+
+              {/* /}
+                <ListItem className={classes.inlineBlock}>
+                  <a
+                    href="http://impotx.com/FAQ"
+                    className={classes.block}
+                    target="_blank"
+                  >
+                {impoTxt.FAQ}
+              </a>
+                </ListItem>
+                {/* */}
+
+              <ListItem className={classes.inlineBlock}>
+                <Select
+                  native
+                  className={classes.inheritColor}
+                  style={{ width: "100%", padding:"0px 0px 0px 10px" }}
+                  value={this.state.language}
+                  onChange={this.handleChange('language')}
+                  inputProps={{
+                    name: 'language',
+                    id: 'pref-lang',
+                  }}
+                >
+                  <option value="">Langue</option>
+                  <option value="fr">Français</option>
+                  <option value="en">English</option>
+                </Select>
+              </ListItem>
+
+            </List>
+          </div>
+          <div className={classes.right}>
+            &copy; {1900 + new Date().getYear()} , {impoTxt.MadeBy}
+            <a
+              href={process.env.REACT_APP_SERVER_URL}
+              className={aClasses}
+              target="_blank"
+            >
+              Gnitic
+          </a>
+          </div>
+        </div>
+        <SecuredPagesRedirect />
+      </footer>
+    );
+  }
+}
+
+Footer.propTypes = {
+  classes: PropTypes.object.isRequired,
+  whiteFont: PropTypes.bool
+};
+
+export default withStyles(footerStyle)(Footer);

@@ -1,0 +1,10 @@
+{
+  apps : [
+    {
+      name      : "impotX",
+      script    : "npx",
+      interpreter: "none",
+      args: "serve -p 80 build"
+    }
+  ]
+}

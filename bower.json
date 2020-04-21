@@ -1,0 +1,27 @@
+{
+  "name": "LudoPortfolio",
+  "homepage": "https://ludovic.rocks",
+  "authors": [
+    "Ludovic Migneault"
+  ],
+  "description": "Photos and code showcase",
+  "main": "dist/index.js",
+  "keywords": [
+    "google",
+    "code",
+    "photo",
+    "chibougamau",
+    "react",
+    "reactjs",
+    "pwa"
+  ],
+  "license": "TODO",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true
+}

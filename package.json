@@ -1,0 +1,68 @@
+{
+  "name": "impot-xyz",
+  "version": "1.3.3",
+  "private": true,
+  "main": "dist/index.js",
+  "homepage": "https://www.impotx.gnitic.com/",
+  "dependencies": {
+    "ajv": "6.5.2",
+    "axios": "^0.18.0",
+    "classnames": "2.2.6",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "cra-append-sw": "^2.5.0",
+    "greenlock-express": "^2.4.6",
+    "halogenium": "^2.2.3",
+    "history": "4.7.2",
+    "lodash": "^4.17.11",
+    "mobx": "^5.15.4",
+    "mobx-react-lite": "^1.5.2",
+    "moment": "2.22.2",
+    "node-sass-chokidar": "1.3.3",
+    "npm-run-all": "4.1.3",
+    "prop-types": "15.6.2",
+    "pug": "^2.0.3",
+    "react": "16.8.0",
+    "react-block-ui": "^1.1.3",
+    "react-collapse": "^4.0.3",
+    "react-dom": "16.8.0",
+    "react-lazyload": "^2.6.5",
+    "react-localization": "^1.0.13",
+    "react-motion": "^0.5.2",
+    "react-nouislider": "2.0.1",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "^2.1.3",
+    "react-scroll": "^1.7.10",
+    "react-slick": "0.23.1",
+    "react-swipeable-views": "0.12.16",  
+    "styled-components": "^5.0.1", 
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": { 
+    "eslint-plugin-react-hooks": "^1.0.1",  
+    "riek": "^1.1.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build && cra-append-sw -s src/push-sw.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint:check": "eslint . --ext=js,jsx;  exit 0",
+    "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "build-package-css": "node-sass-chokidar src/assets/scss/material-kit-react.scss dist/material-kit-react.css",
+    "build-package": "npm run build-package-css && babel src --out-dir dist"
+  },
+  "browserslist": [
+    ">1.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
