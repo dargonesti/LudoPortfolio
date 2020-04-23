@@ -1,7 +1,6 @@
 import React from "react"; 
 import classNames from "classnames"; 
-import PropTypes from "prop-types"; 
-import withStyles from "@material-ui/core/styles/withStyles";
+import PropTypes from "prop-types";  
  
 import parallaxStyle from "assets/jss/material-kit-react/components/parallaxStyle.jsx";  
 
@@ -138,4 +137,4 @@ Parallax.propTypes = {
   parallaxRatio: PropTypes.number
 };
 
-export default withStyles(parallaxStyle)(Parallax);
+export default (Parallax);

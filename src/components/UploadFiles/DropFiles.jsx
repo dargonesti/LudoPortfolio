@@ -3,15 +3,11 @@
 import React, {
   useState, useEffect
 } from "react";
-
-import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
-
-import { Button, OutlinedInput, Select, IconButton, } from "@material-ui/core";
+ 
 import BlockUi from 'react-block-ui';
 
 import Dropzone from "react-dropzone";
-
-import { Clear, CloudUpload } from "@material-ui/icons";
+ 
 
 import SmallerTextField from "views/ImpoCompo/SmallerTextField";
 import ProgressOverlay from "views/ImpoCompo/ProgressOverlay";
@@ -111,7 +107,7 @@ const optionsDepenses = DAL.getDepenses().map(fl =>
 const optionsAll = optionsFeuillets.concat(optionsDepenses).concat([<option value="" key="null"></option>]);
 
 ////////////// FILE LINE
-const FileLine = withStyles(tutoStyle)(({ fileObj, onChange, onRemove, classes }) => {
+const FileLine =  (({ fileObj, onChange, onRemove, classes }) => {
   var file = fileObj.file;
   var [fileToUpload, setFileToUpload] = useState({ cat: "", titre: "", ...fileObj });
   var [uploadProgress, setProgress] = useState(104);
@@ -192,7 +188,7 @@ const FileLine = withStyles(tutoStyle)(({ fileObj, onChange, onRemove, classes }
 
 
 ////////TUTO DROP FILES
-const TutoDropFiles = withStyles(tutoStyle)(({ onSave, onChange, classes }) => {
+const TutoDropFiles =  (({ onSave, onChange, classes }) => {
   var [files, setFiles] = useState([]);
   var [uploading, setUploading] = useState(false);
 

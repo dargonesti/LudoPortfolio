@@ -2,8 +2,6 @@ import React, {Redirect} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 import impoHOC from "HoC/impoHOC.js";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
 
 // @material-ui/icons
 
@@ -20,8 +18,6 @@ import ToastMessages from "components/Footer/ToastMessages";
 import NotificationToastMessages from "components/Footer/NotificationToastMessages";
   
 // Sections for this page
-import ProductSection from "./Sections/ProductSection.jsx";
-import DiapoSection from "./Sections/DiapoSection.jsx";
 import WorkSection from "./Sections/WorkSection.jsx";
 
 import bg1 from "assets/img/impotx/background1.jpg";
@@ -104,8 +100,6 @@ class LandingPage extends React.Component {
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
-            <DiapoSection />
-            <ProductSection />
             <WorkSection />
           </div>
         </div>
@@ -115,5 +109,5 @@ class LandingPage extends React.Component {
   }
 }
 
-export default withStyles(landingPageStyle)(impoHOC(LandingPage, "Landing"));
+export default (impoHOC(LandingPage, "Landing"));
 

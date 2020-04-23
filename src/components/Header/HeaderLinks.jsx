@@ -3,20 +3,7 @@ import React, { Fragment } from "react";
 // react components for routing our app without refresh
 import { Link, Redirect } from "react-router-dom";
 import impoHOC from "HoC/impoHOC.js";
-
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
-
-import Slide from "@material-ui/core/Slide";
-import Dialog from "@material-ui/core/Dialog";
-import DialogContent from "@material-ui/core/DialogContent"; 
-
-// @material-ui/icons
-import { CloudDownload, Notifications} from "@material-ui/icons";
-import People from "@material-ui/icons/People";
+ 
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
@@ -24,17 +11,13 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
-import LoginForm from "views/LoginPage/LoginForm.jsx";
-import NotifPopover from "views/Messages/NotifPopover.jsx";
-import NotificationBadge from 'react-notification-badge';
+import LoginForm from "views/LoginPage/LoginForm.jsx"; 
 
 // Utils
 import auth from 'utils/auth';
 import utils from 'utils/utils';
 import DAL from "utils/DataAccess/DALimpotx";
-import impoTxt from 'texts/localization';
-import {getRecentChatNotifications} from "utils/chatSocket.js";
-import { values, keys, map, filter, compose } from "rambda";
+import impoTxt from 'texts/localization';  
 
 function Transition(props) {
   return <Slide direction="down" {...props} />;
@@ -45,57 +28,7 @@ function isUser() {
   return auth.getToken() && !auth.isAdmin();
   //return auth.getToken() && !auth.getUserInfo().role.name.match(/(Administrator|Comptable)/i);
 }
-
-class NotificationMenu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notifCount: 0,
-      notifOpen: false,
-      notifications: []
-    };
-  }
-
-   componentDidMount() {
-    DAL.getFormatedNotifications()
-    .then(res=>{this.setState({
-      notifCount: auth.isAdmin() ? res.userCount : res.count, 
-      notifications: res.notifs})});
-  }
-
-  handleClose(modal) {
-    var x = [];
-    x[modal] = false;
-    this.setState(x);
-  }
-
-  render() {
-    const { classes } = this.props;
-    var {notifCount,notifications, notifOpen} = this.state;
-
-    return (<Fragment>
-      <Button
-        disabled={notifCount <= 0}
-        color="transparent"
-        target="_blank"
-        className={classes.navLink}
-        onClick={() => {
-          this.setState({ notifOpen: !this.state.notifOpen })
-        }}
-      >
-        <Notifications />
-
-      </Button>
-      <NotifPopover notifications={notifications} open={notifOpen} onClose={this.handleClose.bind(this)} />
-      {this.state.notifCount > 0 &&
-        <NotificationBadge count={notifCount}
-          // top={-45} 
-          //effect={Effect.SCALE}
-          effect={[null, null, { top: '-44px', right: "5px" }, {}]}
-          frameLength={45.0} />}
-    </Fragment>)
-  }
-}
+ 
 
 class HeaderLinks extends React.Component {
   constructor(props) {
@@ -108,8 +41,7 @@ class HeaderLinks extends React.Component {
       redirect: null,
       notifOpen: false,
       notifCount: 1,
-      usersOnline: 0,
-      chatNotifs: getRecentChatNotifications()
+      usersOnline: 0, 
     };
 
     this.getLoginModal = this.getLoginModal.bind(this);
@@ -150,12 +82,7 @@ class HeaderLinks extends React.Component {
     if (!this._isClosing) {
       this.setState({ classicModal: false });
     }
-  }
-  componentDidMount(){
-    utils.addListener("userSentMessage", "headerLinks", ()=>{
-      this.setState({chatNotifs:getRecentChatNotifications()});
-    });
-  }
+  } 
   componentWillUnmount() {
     this._isClosing = true;
     utils.removeListener("userSentMessage", "headerLinks");
@@ -215,42 +142,7 @@ class HeaderLinks extends React.Component {
     
     return (
       <List className={classes.list}>
-
-       {/* } <ListItem className={classes.listItem}>
-
-          <CustomDropdown
-            noLiPadding
-            buttonText="Download App"
-            buttonProps={{
-              className: classes.navLink,
-              color: "transparent"
-            }}
-            buttonIcon={CloudDownload}
-            dropdownList={[
-              <Link to="/component-page" className={classes.dropdownLink}
-                style={{ textDecoration: 'none' }}
-                onClick={(e) => {
-                  alert("Page et app Android en construction.");
-                  //Todo : Ouvrir light box pour choix Android ou ios
-                  e.preventDefault();
-                }}>
-                Android
-              </Link>,
-              <a
-                href="https://creativetimofficial.github.io/material-kit-react/#/documentation"
-                target="_blank"
-                className={classes.dropdownLink}
-                onClick={(e) => {
-                  alert("Page et app Android en construction.");
-                  //Todo : Ouvrir light box pour choix Android ou ios
-                  e.preventDefault();
-                }}
-              >
-                ios
-              </a>
-            ]}
-          />
-          </ListItem> */}
+ 
 
         {(isUser() && utils.isDocsActive())&& (
           <ListItem className={classes.listItem}>
@@ -269,30 +161,7 @@ class HeaderLinks extends React.Component {
               Questions
             </Link>
           </ListItem>)}
-
-        {auth.isAdmin() && (
-          <ListItem className={classes.listItem}>
-            <Link to="/push-notification-page"
-              className={classes.navLink}
-              style={{ textDecoration: 'none' }}>
-              {impoTxt.headPushNotification}
-            </Link>
-          </ListItem>)}
-        {auth.isAdmin() && (
-          <ListItem className={classes.listItem}>
-            <Link to="/chat-page"
-              className={classes.navLink}
-              style={{ textDecoration: 'none' }}>
-              {impoTxt.chatHead}
-            </Link>  
-        <NotificationBadge count={keys(this.state.chatNotifs).length}
-          // top={-45} 
-          //effect={Effect.SCALE}
-          effect={[null, null, { top: '-44px', right: "5px" }, {}]}
-          frameLength={45.0} />
-        
-          </ListItem>    
-          )}
+   
 
         {auth.isAdmin() && (
           <ListItem className={classes.listItem}>
@@ -335,20 +204,7 @@ class HeaderLinks extends React.Component {
             </Link>
           </Tooltip>
         </ListItem>}
-        {auth.getUserInfo() && (
-          <Fragment>
-            <ListItem className={classes.listItem}>
-              <Tooltip
-                id="notification-tooltip"
-                title="Notifications"
-                placement={window.innerWidth > 959 ? "top" : "left"}
-                classes={{ tooltip: classes.tooltip }}
-              >
-                <NotificationMenu classes={classes} />
-              </Tooltip>
-            </ListItem>
-          </Fragment>
-        )}
+         
         {isDev && 
         <ListItem className={classes.listItem}>
           <Tooltip
@@ -375,4 +231,4 @@ class HeaderLinks extends React.Component {
 
 }
 
-export default withStyles(headerLinksStyle)(HeaderLinks);
+export default (HeaderLinks);

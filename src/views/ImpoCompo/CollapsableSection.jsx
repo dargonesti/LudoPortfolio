@@ -2,11 +2,7 @@ import React, {
   useState, useEffect
 } from "react";
 // @material-ui/core components 
-
-import withStyles from "@material-ui/core/styles/withStyles";
-import { Collapse, Button } from '@material-ui/core';
-import { ExpandMore, ExpandLess } from "@material-ui/icons";
-
+ 
 import profilePageStyle from "assets/jss/material-kit-react/views/adminPages.jsx";
 
 /**** ALTERNATIVE : PAPER
@@ -73,4 +69,4 @@ const CollapsableSection = ({ startOpen, onOpen, disabled = false, inverseIcons,
   );
 };
 
-export default withStyles(profilePageStyle)(CollapsableSection);
+export default (CollapsableSection);

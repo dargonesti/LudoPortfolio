@@ -4,15 +4,12 @@ import React from "react";
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-import { List, ListItem, withStyles, Select, FormControl, InputLabel } from "@material-ui/core";
 
 // @material-ui/icons
 //import Favorite from "@material-ui/icons/Favorite";
 
 import footerStyle from "assets/jss/material-kit-react/components/footerStyle.jsx";
-
-import SecuredPagesRedirect from "components/SecuredPagesRedirect/SecuredPagesRedirect.jsx";
-
+ 
 import auth from "utils/auth.js";
 import utils from "utils/utils.js";
 import localData from 'utils/DataAccess/localData';
@@ -68,8 +65,8 @@ class Footer extends React.Component {
       <footer className={footerClasses}>
         <div className={classes.container}>
           <div className={classes.left}>
-            <List className={classes.list}>
-              <ListItem className={classes.inlineBlock}>
+            <ul className={classes.list}>
+              <li className={classes.inlineBlock}>
                 <a
                   href="https://www.gnitic.com/"
                   className={classes.block}
@@ -77,8 +74,8 @@ class Footer extends React.Component {
                 >
                   Gnitic
               </a>
-              </ListItem>
-              <ListItem className={classes.inlineBlock}>
+              </li>
+              <li className={classes.inlineBlock}>
                 <a
                   href="/about-us"
                   className={classes.block}
@@ -86,7 +83,7 @@ class Footer extends React.Component {
                 >
                   {impoTxt.AboutUs}
                 </a>
-              </ListItem>
+              </li>
 
               {/* /}
                 <ListItem className={classes.inlineBlock}>
@@ -100,8 +97,8 @@ class Footer extends React.Component {
                 </ListItem>
                 {/* */}
 
-              <ListItem className={classes.inlineBlock}>
-                <Select
+              <li className={classes.inlineBlock}>
+                <select
                   native
                   className={classes.inheritColor}
                   style={{ width: "100%", padding:"0px 0px 0px 10px" }}
@@ -115,10 +112,10 @@ class Footer extends React.Component {
                   <option value="">Langue</option>
                   <option value="fr">Français</option>
                   <option value="en">English</option>
-                </Select>
-              </ListItem>
+                </select>
+              </li>
 
-            </List>
+            </ul>
           </div>
           <div className={classes.right}>
             &copy; {1900 + new Date().getYear()} , {impoTxt.MadeBy}
@@ -131,7 +128,6 @@ class Footer extends React.Component {
           </a>
           </div>
         </div>
-        <SecuredPagesRedirect />
       </footer>
     );
   }
@@ -142,4 +138,4 @@ Footer.propTypes = {
   whiteFont: PropTypes.bool
 };
 
-export default withStyles(footerStyle)(Footer);
+export default (Footer);

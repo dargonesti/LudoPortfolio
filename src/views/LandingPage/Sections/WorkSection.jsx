@@ -1,6 +1,4 @@
-import React from "react";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import React from "react"; 
 
 // @material-ui/icons
 
@@ -34,4 +32,4 @@ class WorkSection extends React.Component {
   }
 }
 
-export default withStyles(workStyle)(WorkSection);
+export default (WorkSection);

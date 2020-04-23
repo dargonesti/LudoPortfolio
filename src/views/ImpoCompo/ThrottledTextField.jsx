@@ -3,9 +3,6 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import { TextField } from "@material-ui/core/";
 
 import debounce from "lodash.debounce";
 
@@ -99,10 +96,10 @@ class ThrottledTextField extends React.Component {
         flexDirection: "column",
         position: "relative"
       }}>
-        <TextField value={this.state.value} label={this.props.label}
+        <textfield value={this.state.value} label={this.props.label}
           style={this.props.style}
           onChange={this.handleChange}>
-        </TextField>
+        </textfield>
 
         <div style={{
           backgroundColor: this.getColor(ratio),
@@ -127,4 +124,4 @@ ThrottledTextField.propTypes = {
 
 };
 
-export default withStyles(customInputStyle)(ThrottledTextField);
+export default (ThrottledTextField);

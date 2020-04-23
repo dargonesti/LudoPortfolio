@@ -1,18 +1,13 @@
 import React, {useEffect, useState} from "react";
 
 // nodejs library that concatenates classes
-import classNames from "classnames";
-// @material-ui/core components 
-
-import withStyles from "@material-ui/core/styles/withStyles";
+import classNames from "classnames"; 
+ 
 // core components 
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
-
-import ToastMessages from "components/Footer/ToastMessages";
-import NotificationToastMessages from "components/Footer/NotificationToastMessages";
-import ChatWindow from "views/ImpoCompo/Chat/ChatWindow";
+ 
 
 import bg2 from "assets/img/impotx/background2.jpg";
 import wbg2 from "assets/img/impotx/background2.webp";
@@ -40,23 +35,7 @@ const WrapingImpotPage = (props) => {
   function shouldShowChat() {
     return utils.isChatActive() //&& !localData.get("chatWindowClosed");
   }
-
-  const ShownChats = (props) => {
-    if (shouldShowChat()) {
-
-      if (auth.isAdmin()) {
-        var curConv = Object.keys(localData.get("chatCache") || {}).filter(userId=>!(localData.getStorage("chatWindowClosed") || []).includes(userId));
-        return (<>
-        {curConv.map((userId, ind)=><ChatWindow key={userId} userId={userId} winNumber={ind} firebaseData={firebaseData} />)}
-        </>);
-      } else {
-        return <ChatWindow firebaseData={firebaseData}/>;
-      }
-
-    } else {
-      return null;
-    }
-  }
+ 
 
   var style = {};
   if (blurred) {
@@ -74,9 +53,7 @@ const WrapingImpotPage = (props) => {
     //style.filter = "blur(6px) brightness(0.6)";
   }
   return (
-    <>
-      <ToastMessages />
-      <NotificationToastMessages />
+    <> 
       <div style={style}>
         <Header
           color="transparent"
@@ -94,8 +71,7 @@ const WrapingImpotPage = (props) => {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.mainContentMargin}>
             {props.children}
-
-            <ShownChats />
+ 
           </div>
         </div>
         <Footer />
@@ -104,4 +80,4 @@ const WrapingImpotPage = (props) => {
   );
 }
 
-export default withStyles(profilePageStyle)(WrapingImpotPage);
+export default (WrapingImpotPage);

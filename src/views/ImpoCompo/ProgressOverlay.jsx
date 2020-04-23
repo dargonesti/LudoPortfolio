@@ -1,8 +1,7 @@
 /*eslint eqeqeq:0*/
 /*eslint no-mixed-operators:0*/
 import React from "react";
-import PropTypes from "prop-types";
-import withStyles from "@material-ui/core/styles/withStyles"; 
+import PropTypes from "prop-types"; 
 import useAnimation from './use-animation'; 
 
 const HeaderH = 50;
@@ -53,4 +52,4 @@ ProgressOverlay.propTypes = {
     color: PropTypes.string,
 };
 
-export default withStyles(progressHeaderStyle)(ProgressOverlay);
+export default (ProgressOverlay);

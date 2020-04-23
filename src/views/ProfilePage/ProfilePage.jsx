@@ -1,13 +1,7 @@
 import React from "react";
 import WrapingImpotPage from "HoC/WrapingImpotPage.jsx";
 // nodejs library that concatenates classes
-import classNames from "classnames";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
+import classNames from "classnames";  
 // core components
 import Button from "components/CustomButtons/Button.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -76,8 +70,7 @@ const ProfilePage = ({classes, firebaseData})=>{
                     color="primary"
                     tabs={[
                       {
-                        tabButton: "Studio",
-                        tabIcon: Camera,
+                        tabButton: "Studio", 
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem xs={12} sm={12} md={4}>
@@ -108,8 +101,7 @@ const ProfilePage = ({classes, firebaseData})=>{
                         )
                       },
                       {
-                        tabButton: "Work",
-                        tabIcon: Palette,
+                        tabButton: "Work", 
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem xs={12} sm={12} md={4}>
@@ -145,8 +137,7 @@ const ProfilePage = ({classes, firebaseData})=>{
                         )
                       },
                       {
-                        tabButton: "Favorite",
-                        tabIcon: Favorite,
+                        tabButton: "Favorite", 
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem xs={12} sm={12} md={4}>
@@ -190,4 +181,4 @@ const ProfilePage = ({classes, firebaseData})=>{
     );
   }
 
-export default withStyles(profilePageStyle)(ProfilePage);
+export default (ProfilePage);

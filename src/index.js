@@ -20,10 +20,10 @@ const MainRouter = (props) => {
     <StoreProvider>
       <Router history={hist}>
         <Switch>
-          {debounceRenderPages.map((prop, key) => { //indexRoutes ou debounceRenderPages
+          {indexRoutes.map((prop, key) => { //indexRoutes ou debounceRenderPages
             let Comp = prop.component;
             return <Route path={prop.path} key={key} render={(routeProps) => (
-              <Comp firebaseData={firebaseData} />)} />;
+              <Comp  />)} />;
           })}
         </Switch>
       </Router>

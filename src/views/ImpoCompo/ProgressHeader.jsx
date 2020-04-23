@@ -2,8 +2,7 @@
 /*eslint no-mixed-operators:0*/
 import React from "react";
 import PropTypes from "prop-types";
-
-import withStyles from "@material-ui/core/styles/withStyles";
+ 
 
 import useAnimation from './use-animation';
 
@@ -117,4 +116,4 @@ ProgressHeader.propTypes = {
     color: PropTypes.string,
 };
 
-export default withStyles(progressHeaderStyle)(ProgressHeader);
+export default (ProgressHeader);
