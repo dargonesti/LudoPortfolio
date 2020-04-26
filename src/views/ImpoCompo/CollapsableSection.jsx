@@ -8,7 +8,7 @@ import profilePageStyle from "assets/jss/material-kit-react/views/adminPages.jsx
 /**** ALTERNATIVE : PAPER
    <Paper className={classes.UserSummaryPaper}>
 
-    <h3 style={{ paddingBottom: 10 }} >{this.getExpandBtn("openAdmin")}{impoTxt.sumSectAdmin}</h3>
+    <h3 style={{ paddingBottom: 10 }} >{this.getExpandBtn("openAdmin")}{translatedTxt.sumSectAdmin}</h3>
 
     <Collapse in={this.state.openAdmin} timeout={{ enter: 666, exit: 666 }}>
       <SectionAdmin user={this.state.user} />

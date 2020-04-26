@@ -2,9 +2,7 @@ import React from "react";
 // react plugin that creates slider 
  
 
-// core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
+// core components 
 import Button from "components/CustomButtons/Button.jsx";
 
 import basicsStyle from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.jsx";
@@ -43,7 +41,8 @@ class SectionImmaterial extends React.Component {
     });
   }
   render() {
-    const { classes } = this.props;
+    let { classes } = this.props;
+    classes = {}
     return (
       <div className={classes.sections}>
         <div className={classes.container}>
@@ -79,16 +78,11 @@ class SectionImmaterial extends React.Component {
                   Component pour avoir de belles grids responsives, se trouve <a href="https://github.com/xudafeng/autoresponsive-react">sur git.</a>
                 </small>
               </h3>
-            </div>
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={8}>
+            </div> 
                 <Button color="primary">Default</Button>
                 <Button color="primary" round>
                   round
-                </Button>
-
-              </GridItem>
-            </GridContainer>
+                </Button> 
 
 
             <div className={classes.space50} />
@@ -104,9 +98,10 @@ class SectionImmaterial extends React.Component {
                   Components intéressants qui devraient éventuellement être ajoutés au site.
                 </small>
               </h3>
-            </div>
-            <GridItem xs={12} md={12}>
+            </div> 
               <ul>
+
+                <li><a href="https://reactcommunity.org/react-transition-group/with-react-router">react-transition Avec router</a></li>
 
                 <li><a href="http://kidjp85.github.io/react-id-swiper/">Un beau Slider ( react-id-swiper )</a></li>
 
@@ -168,8 +163,7 @@ class SectionImmaterial extends React.Component {
                 
                 <li><a href="https://bit.dev/aayush1408/must-have-hooks-in-your-toolbox" >10 must have custom hook</a></li>
 
-              </ul>
-            </GridItem>
+              </ul> 
  
             </div>
       </div>

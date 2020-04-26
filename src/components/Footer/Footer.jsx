@@ -13,7 +13,7 @@ import footerStyle from "assets/jss/material-kit-react/components/footerStyle.js
 import auth from "utils/auth.js";
 import utils from "utils/utils.js";
 import localData from 'utils/DataAccess/localData';
-import impoTxt from 'texts/localization';
+import translatedTxt from 'texts/localization';
 
 
 class Footer extends React.Component {
@@ -23,7 +23,7 @@ class Footer extends React.Component {
 
     var selectVal = this.getSavedLanguage();
 
-    impoTxt.setLanguage(selectVal);
+    translatedTxt.setLanguage(selectVal);
 
     this.state = {
       language: selectVal
@@ -49,7 +49,9 @@ class Footer extends React.Component {
   }
 
   render() {
-    const { classes, whiteFont } = this.props;
+    let  { classes, whiteFont } = this.props;
+
+    if(classes == null) classes = {};
 
     const footerClasses = classNames({
       [classes.footer]: true,
@@ -60,7 +62,7 @@ class Footer extends React.Component {
       [classes.footerWhiteFont]: whiteFont
     });
 
-    impoTxt.setLanguage(this.getSavedLanguage());
+    translatedTxt.setLanguage(this.getSavedLanguage());
     return (
       <footer className={footerClasses}>
         <div className={classes.container}>
@@ -81,7 +83,7 @@ class Footer extends React.Component {
                   className={classes.block}
                   target="_blank"
                 >
-                  {impoTxt.AboutUs}
+                  {translatedTxt.AboutUs}
                 </a>
               </li>
 
@@ -92,7 +94,7 @@ class Footer extends React.Component {
                     className={classes.block}
                     target="_blank"
                   >
-                {impoTxt.FAQ}
+                {translatedTxt.FAQ}
               </a>
                 </ListItem>
                 {/* */}
@@ -118,7 +120,7 @@ class Footer extends React.Component {
             </ul>
           </div>
           <div className={classes.right}>
-            &copy; {1900 + new Date().getYear()} , {impoTxt.MadeBy}
+            &copy; {1900 + new Date().getYear()} , {translatedTxt.MadeBy}
             <a
               href={process.env.REACT_APP_SERVER_URL}
               className={aClasses}

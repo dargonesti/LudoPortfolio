@@ -20,7 +20,7 @@ import profilePageStyle from "assets/jss/material-kit-react/views/adminPages.jsx
 
 
 const WrapingImpotPage = (props) => {
-  const { classes, blurred, firebaseData, ...rest } = props; 
+  const { classes, blurred, ...rest } = props; 
   const [randomNum, setNum] = useState(0);
   const update=()=>setNum(Math.random());
 

@@ -6,9 +6,7 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";  
 // core components
 import Header from "components/Header/Header.jsx";
-import Footer from "components/Footer/Footer.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
+import Footer from "components/Footer/Footer.jsx"; 
 import Button from "components/CustomButtons/Button.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 import SectionImmaterial from "./Sections/SectionImmaterial.jsx";
@@ -25,37 +23,26 @@ import wbg from "assets/img/fromJoe/herosliderwavebackground.webp";
 class Components extends React.Component {
  
   render() {
-    const { classes, ...rest } = this.props;
-    var notifs = DAL.getAdminNotifications();
+    let { classes, ...rest } = this.props; 
+    classes = {};
     /*Header Prop : changeColorOnScroll={{
             height: 400,
             color: "white"
           }}*/
     return (
       <div>
-        <Header
+        {false && <Header
           brand="Gnitic" 
           fixed
           color="white"
           
           {...rest}
-        />
-        <Parallax image={utils.canUseWebP() ? wbg : bg} withGreen style={{
-          //backgroundColor: "#129019",
-          backgroundColor:"linear-gradient(rgba(99,250,99,1), rgba(0,200,0,1))", zIndex:2, backgroundSize:"cover", backgroundRepeat: "no-repeat",
-          boxSizing: "content-box"
-          }}>
-          <div className={classes.container}>
-           header?
-          </div>
-        </Parallax>
-
+        />}
+      
         <div className={classNames(classes.main, classes.mainRaised)}>
-
-
           <SectionImmaterial />
         </div>
-        <Footer />
+        {false && <Footer />}
       </div>
     );
   }

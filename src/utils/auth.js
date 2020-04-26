@@ -3,11 +3,9 @@
 import utils from "./utils.js";
 import localData from "./DataAccess/localData.js";
 import uuidv4 from 'uuid/v4';
+ 
 
-import firebase from "firebase";
-
-const TOKEN_KEY = 'jwtToken';
-const FIREBASE_TOKEN_KEY = 'FirebaseJwtToken';
+const TOKEN_KEY = 'jwtToken'; 
 const USER_INFO = 'userInfo';
 
 
@@ -20,19 +18,9 @@ const auth = {
   },
   clearAppStorage() {
     localData.clearAppStorage();
-    try {
-      if (firebase.auth().currentUser)
-        firebase.database().ref('/status/' + firebase.auth().currentUser.uid)
-          .set({
-            state: 'online', // NOTE: was "offline"???
-            last_changed: firebase.database.ServerValue.TIMESTAMP
-          });
-    } catch (ex) { }
-    firebase.auth().signOut();
   },
   clearToken() {
-    localData.clearStorage(TOKEN_KEY);
-    localData.clearStorage(FIREBASE_TOKEN_KEY);
+    localData.clearStorage(TOKEN_KEY); 
   },
   clearUserInfo() {
     localData.clearStorage(USER_INFO);
@@ -87,10 +75,7 @@ const auth = {
   },
   getToken(tokenKey = TOKEN_KEY) {
     return localData.getStorage(tokenKey);
-  },
-  getFirebaseToken(tokenKey = FIREBASE_TOKEN_KEY) {
-    return localData.getStorage(tokenKey);
-  },
+  }, 
   getUserInfo(userInfo = USER_INFO) {
     return localData.getStorage(userInfo);
   },
@@ -98,11 +83,7 @@ const auth = {
 
   setToken(value = '', isLocalStorage = false, tokenKey = TOKEN_KEY) {
     return localData.setStorage(tokenKey, value, isLocalStorage);
-  },
-  setFirebaseToken(value = '', isLocalStorage = false, tokenKey = FIREBASE_TOKEN_KEY) {
-    return localData.setStorage(tokenKey, value, isLocalStorage);
-  },
-
+  }, 
   setUserInfo(value = {}, isLocalStorage = false, userInfo = USER_INFO) {
     try {
       if (value &&

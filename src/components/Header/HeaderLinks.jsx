@@ -5,19 +5,16 @@ import { Link, Redirect } from "react-router-dom";
 import impoHOC from "HoC/impoHOC.js";
  
 
-// core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
+// core components 
 import Button from "components/CustomButtons/Button.jsx";
 
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
-
-import LoginForm from "views/LoginPage/LoginForm.jsx"; 
-
+ 
 // Utils
 import auth from 'utils/auth';
 import utils from 'utils/utils';
 import DAL from "utils/DataAccess/DALimpotx";
-import impoTxt from 'texts/localization';  
+import translatedTxt from 'texts/localization';  
 
 function Transition(props) {
   return <Slide direction="down" {...props} />;
@@ -64,7 +61,7 @@ class HeaderLinks extends React.Component {
             this.props.onLogout();
           }
       }
-      auth.showToast(impoTxt.toastBye, null, "info");
+      auth.showToast(translatedTxt.toastBye, null, "info");
     } else {
       var x = [];
       x[modal] = true;
@@ -105,7 +102,7 @@ class HeaderLinks extends React.Component {
           onClick={() => this.handleClickOpen("classicModal")}
         >
           <People />
-          {auth.getToken() ? impoTxt.headLogout : impoTxt.headLogin}
+          {auth.getToken() ? translatedTxt.headLogout : translatedTxt.headLogin}
         </Button>
         <Dialog
           classes={{
@@ -123,8 +120,7 @@ class HeaderLinks extends React.Component {
           <DialogContent
             id="classic-modal-slide-description"
             className={classes.modalBody}
-          >
-            <LoginForm isOpen={this.state.classicModal} onClose={this.handleCloseModal} />
+          > 
           </DialogContent>
         </Dialog>
       </div>
@@ -168,7 +164,7 @@ class HeaderLinks extends React.Component {
             <Link to="/find-user-page"
               className={classes.navLink}
               style={{ textDecoration: 'none' }}>
-              {impoTxt.headFindUser}
+              {translatedTxt.headFindUser}
             </Link>
           </ListItem>)}
 
@@ -177,7 +173,7 @@ class HeaderLinks extends React.Component {
             <Link to="/user-profile-page"
               className={classes.navLink}
               style={{ textDecoration: 'none' }}>
-              {impoTxt.headmonProfile}
+              {translatedTxt.headmonProfile}
             </Link>
           </ListItem>)}
 

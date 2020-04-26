@@ -226,21 +226,7 @@ Relevant images are usually either recipes, or Official documents from the Gover
 
             MessageVide: ["'Message' ne doit pas être vide.", "There must be a 'Message'"],
             NotifSent: ["Notification envoyée", "Notification sent"],
-
-            ChangedText: ["La réponse sera sauvegardée seulement quand vous aurez cliquer le bouton 'envoyer' ", 'The naswer will only be saved once you\'ll click "Send" '],
-
-            Signed: ["Signé!", "File signed!"],
-            ToSign: ["À signer", "To sign"],
-            NeedCategory: ["Vous devez choisir une catégorie!", "You need to choose a category!"],
-           
-            CatAndTitle: [ "Veuillez saisir une catégorie et un titre.", "Please chose a category and enter a file name."],
-            PasBonFormat: ["Certains fichiers ne sont pas du bon format. Les formats acceptés sont : ", "Some files are not supported. The supported formats are : "],
-            FilesSameName: ["Certains fichiers ajoutés portent le même nom que ceux ajoutés précédemment.", "Some files have the same name name."],
-           
-            AlreadyUpload: ["Déja en train d'uploader.", "Already uploading."],
-            SuccessUpload: ["Vos fichiers ont bien été téléversé.", "Uploaded with success."],
-        
-            ErrClosingMessage: ["Erreur lors de la fermeture du message", "Error closing the message"],
+ 
         }
     },
 
@@ -248,22 +234,7 @@ Relevant images are usually either recipes, or Official documents from the Gover
         nomSection: "User Summary",
         prefix: "sum",
         sufix: "",
-        texts: {
-            Titre: ["Information de l'usager : ", "Information on User : "],
-            SectInfos: ["Informations de base", "Basic Informations"],
-            SectAdmin: ["Section Admin", "Admin Section"],
-            SectQuestion: ["Questions", "Questions"],
-            SectRep: ["Questions", "Answers"],
-
-            SectDocs: ["Mes Documents", "My Files"],
-            SectDocsAdmin: ["Documents à Approuver", "Files to Approve"],
-            SectMsg: ["Messages", "Messages"],
-            AucunMsg: ["Aucun message à afficher.", "No Messages to show."],
-
-            Modifiable: ['Modifiable via la section "Question" : ', 'Editable from the "Question" section : '],
-
-            NoAns: ["Pas de questions répondues.", "No answers found."],
-
+        texts: { 
             ClicPush: ["Recevoir Notifications", "Subscribe to Pushes"]
         }
     },
@@ -294,29 +265,18 @@ Relevant images are usually either recipes, or Official documents from the Gover
         prefix: "landing",
         sufix: "",
         texts: {
-            Titre: ["Impôts faciles et abordables.", "Taxes, done quick and easy."],
-            FirstDesc: ["Une solution d'impôts adaptée à nos clients. Finis les casse tête, gardez tous vos documents à la même place et laissez nous vous aider.",
-                "A tax solution adapted to our costumers. No more puzzles, keep all your documents in the same place and let us help you."],
+            Titre: ["Ludovic Migneault", "Ludovic Migneault"],
+            FirstDesc: ["Une solution  .",
+                "A solution adapted  ."],
             TalkProduct: ["Notre offre", "Our offer"],
-            DescProduct: [`Ceci est un paragraph où nous pouvons détailler notre application.
-            Garder l'usager engagé en lui fournissant des informations pertinentes.
-            À ce point, si l'usager lis ce texte c'est parce qu'il est un intéréssé.`,
-                `This is the paragraph where you can write more details about your product. 
-        Keep you user engaged by providing meaningful information. 
-        Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. 
+            DescProduct: [`Ceci est un st parce qu'il est un intéréssé.`,
+                `This is the paragra ser is curious, otherwise he wouldn't scroll to get here. 
         Add a button if you want the user to see more.`],
 
             WorkWithUs: ["Faites un essai avec nous", "Try us"],
-            Desc: [`Créez un compte gratuitement et commencez à saisir vos informations tout de suite!
-            Explorez ensuite les différentes sections de notre application, puis, si vous appréciez l'expérience, 
-            visitez la section des tarifs pour faire votre rapport avec nous.`,
-                `Create a free account and try our app right now!
-            Continue by exploring the different sections of our web site, then, if you like the experience, 
-            visit the pricing page to have the full experience!`],
-
-            CherchezPlus: ["NE CHERCHEZ PLUS VOS DOCUMENTS", "STOP SEARCHING"],
-            CherchezPlusDesc: ['Prenez une photo et sauvegarder la sur votre espace "impôt personnel"',
-                "Take a picture and save it in the cloud."],
+            Desc: [`Description.`,
+                `Description.`],
+ 
 
             AucunDep: ["AUCUN DÉPLACEMENT NÉCESSAIRE", "FROM ANYWHERE"],
             AucunDepDesc: ["Rencontrez un conseiller comme vous voulez ...téléphone, courriel, etc.",

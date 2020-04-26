@@ -6,7 +6,7 @@ import indexRoutes from "routes/index.jsx";
 import auth from "utils/auth.js";
 import DAL from "utils/DataAccess/DALimpotx.js";
 import utils from "utils/utils.js";
-import impoTxt from 'texts/localization';
+import translatedTxt from 'texts/localization';
 import localData from "utils/DataAccess/localData";
 
 function currentPageIsSecure() {
@@ -38,7 +38,7 @@ class SecuredPagesRedirect extends React.Component {
                         auth.clearToken();
                         auth.clearUserInfo();
                         this.setState({ redirect: "/" });
-                        auth.showToast(impoTxt.toastErrCon + ex.message, 5000, "danger");
+                        auth.showToast(translatedTxt.toastErrCon + ex.message, 5000, "danger");
                     };
 
                     DAL.getUser()
@@ -46,7 +46,7 @@ class SecuredPagesRedirect extends React.Component {
                             utils.log(res);
                             this.setState({ successLogin: true });
                             auth.setUserInfo(res, true);
-                            auth.showToast(impoTxt.toastWelcome);
+                            auth.showToast(translatedTxt.toastWelcome);
                             if (auth.isAdmin()) {
                                 var necessaryData = 0;
                                 DAL.getUsers("ignoreCache").then(res => {
@@ -80,7 +80,7 @@ class SecuredPagesRedirect extends React.Component {
         if(isEmailConfirm(param)){
             DAL.confirmEmail(param)
             .then((res)=>{
-                auth.showToast(impoTxt.toastCompteValide);
+                auth.showToast(translatedTxt.toastCompteValide);
             });
         }
     }

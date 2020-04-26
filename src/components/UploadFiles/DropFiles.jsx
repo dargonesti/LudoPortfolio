@@ -17,7 +17,7 @@ import axios from "axios";
 import DAL from "utils/DataAccess/DALimpotx.js";
 import auth from 'utils/auth';
 import utils from "utils/utils";
-import impoTxt from 'texts/localization';
+import translatedTxt from 'texts/localization';
 
 /* STYLES */
 
@@ -202,10 +202,10 @@ const TutoDropFiles =  (({ onSave, onChange, classes }) => {
     var alrdyAdded = acceptedFiles.filter(wasAlreadyThere);
 
     if (wrongFormatFiles.length > 0) {
-      auth.showToast(impoTxt.toastPasBonFormat + formatList.join(", ") + ".", 3000, "danger");
+      auth.showToast(translatedTxt.toastPasBonFormat + formatList.join(", ") + ".", 3000, "danger");
     }
     if (alrdyAdded.length > 0) {
-      auth.showToast(impoTxt.toastFilesSameName, 3000, "danger");
+      auth.showToast(translatedTxt.toastFilesSameName, 3000, "danger");
     }
 
     //this.setState({ newFile: file });
@@ -217,11 +217,11 @@ const TutoDropFiles =  (({ onSave, onChange, classes }) => {
     var toUpload = files.filter(file => !file.done);
 
     if (uploading) {
-      auth.showToast(impoTxt.toastAlreadyUpload, 3000, "info");
+      auth.showToast(translatedTxt.toastAlreadyUpload, 3000, "info");
       return false;
     }
     if (toUpload.some(file => !(file.cat) || !(file.titre))) {
-      auth.showToast(impoTxt.toastCatAndTitle, 3000, "danger");
+      auth.showToast(translatedTxt.toastCatAndTitle, 3000, "danger");
       return false;
     }
 
@@ -272,7 +272,7 @@ const TutoDropFiles =  (({ onSave, onChange, classes }) => {
     if (onSave) onSave();
     setFiles([]);
 
-    auth.showToast(impoTxt.toastSuccessUpload, 3000);
+    auth.showToast(translatedTxt.toastSuccessUpload, 3000);
   }
 
   //onChange(files);
@@ -289,7 +289,7 @@ const TutoDropFiles =  (({ onSave, onChange, classes }) => {
         }}
         onDrop={(files) => onDrop(files)}>
         <div style={{ paddingTop: 0, textAlign: "center" }}>
-          {impoTxt.docDragDrop}
+          {translatedTxt.docDragDrop}
         </div>
       </Dropzone>
 

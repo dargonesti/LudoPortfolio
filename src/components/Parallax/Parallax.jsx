@@ -73,7 +73,7 @@ class Parallax extends React.Component {
   //Vert foncer : #00612e
 
   render() {
-    const {
+    let {
       classes,
       filter,
       className,
@@ -84,6 +84,8 @@ class Parallax extends React.Component {
       xsmall,
       withGreen
     } = this.props;
+    
+    if (classes == null ) classes = {};     
     //    backgroundImage: "url(" + utils.toWebP(image) + ")",
     const parallaxClasses = classNames({
       [classes.parallax]: true,

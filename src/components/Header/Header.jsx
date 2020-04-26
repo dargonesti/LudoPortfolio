@@ -25,7 +25,7 @@ const WithMobx = observer((props) => {
   return <Header {...props} stickyReplace={store.replacesStickyHeader} />
 })
 
-const Header = () => {
+const Header = (props) => {
 
   const {
     classes,
@@ -35,8 +35,8 @@ const Header = () => {
     fixed,
     absolute,
     stickyReplace
-  } = this.props;
-  const rightLinks = this.props.rightLinks || <HeaderLinks onLogout={this.handleLogout} />; 
+  } = props;
+  const rightLinks = props.rightLinks || <HeaderLinks onLogout={()=>{}} />; 
   let ifSticky = stickyReplace ? " " + classes.stickyHidden : "";
 
   return (
@@ -68,13 +68,7 @@ Header.propTypes = {
   leftLinks: PropTypes.node,
   brand: PropTypes.string,
   fixed: PropTypes.bool,
-  absolute: PropTypes.bool,
-  // this will cause the sidebar to change the color from
-  // this.props.color (see above) to changeColorOnScroll.color
-  // when the window.pageYOffset is heigher or equal to
-  // changeColorOnScroll.height and then when it is smaller than
-  // changeColorOnScroll.height change it back to
-  // this.props.color (see above)
+  absolute: PropTypes.bool, 
   changeColorOnScroll: PropTypes.shape({
     height: PropTypes.number.isRequired,
     color: PropTypes.oneOf([
