@@ -1,37 +1,31 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
-import { StoreProvider } from 'utils/mobx/ConfigStore';
-
-import indexRoutes from "routes/index.jsx";
-
-import "assets/scss/material-kit-react.css?v=1.2.0";
 import registerServiceWorker from "./registerServiceWorker";
+import LoadingPage from "./views/LoadingPage/LoadingPage.jsx";
 
+import "main.scss"
+ 
+const minTimeImport = (target, minTime)=>lazy(() =>  Promise.all([
+  target,
+  new Promise(res => setTimeout(res, minTime || 0))
+])
+.then(([moduleExports]) => moduleExports)
+)
+ 
+const LoadingRouter = minTimeImport(import("LoadingRouter.jsx"), 5000); 
 
-console.log(process.env);
-
-var hist = createBrowserHistory();
+console.log(process.env); 
 
 const MainRouter = (props) => {
-
+ 
   return (
-    <StoreProvider>
-      <Suspense fallback={<div className="initial-parent">  
-      <div className="initial-loader" />
-        </div>}>
-        <Router history={hist}>
-          <Switch>
-            {indexRoutes.map((prop, key) => { //indexRoutes ou debounceRenderPages
-              let Comp = prop.component;
-              return <Route path={prop.path} key={key} render={(routeProps) => (
-                <Comp />)} />;
-            })}
-          </Switch>
-        </Router>
+    <div className="body">
+      <Suspense fallback={<LoadingPage />}>
+        <LoadingPage loaded /> 
+
+        <LoadingRouter />
       </Suspense>
-    </StoreProvider>);
+      </div>);
   };
   
   ReactDOM.render(
@@ -40,29 +34,3 @@ const MainRouter = (props) => {
     );
     registerServiceWorker();
     
-    
-    
-    /*
-    var promptEvent = null;
-    
-window.addEventListener('beforeinstallprompt', (e) => {
-        promptEvent = e;
-     e.preventDefault();
-     console.log("Showing prompt in 3 sec.");
-  setTimeout(()=>{
-        console.log("Showing Prompt");
-      showA2HSPrompt();},
-      3000);
-  });
-  
-window.addEventListener('appinstalled', (e) => {
-        //app.logEvent('a2hs', 'installed');`
-        console.log("app installed.");
-    })
-    
-function showA2HSPrompt() {
-        promptEvent.prompt();
-  promptEvent.userChoice.then((choiceResult) => {
-        console.log(choiceResult.outcome);
-    });
-}*/

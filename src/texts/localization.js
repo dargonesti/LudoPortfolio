@@ -266,8 +266,8 @@ Relevant images are usually either recipes, or Official documents from the Gover
         sufix: "",
         texts: {
             Titre: ["Ludovic Migneault", "Ludovic Migneault"],
-            FirstDesc: ["Une solution  .",
-                "A solution adapted  ."],
+            FirstDesc: ["Revenez la semaine prochaine!",
+                "Come back next week for new stuff!"],
             TalkProduct: ["Notre offre", "Our offer"],
             DescProduct: [`Ceci est un st parce qu'il est un intéréssé.`,
                 `This is the paragra ser is curious, otherwise he wouldn't scroll to get here. 
