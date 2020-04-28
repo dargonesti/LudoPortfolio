@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/LudoPortfolio/precache-manifest.6fddb0791054d5daca97ef5c3378015e.js"
+  "/LudoPortfolio/precache-manifest.2d4e10e624fbfeeab1b54c13880fe9ba.js"
 );
 
 workbox.clientsClaim();

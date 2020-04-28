@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/LudoPortfolio/static/js/2.ba1eed05.chunk.js"
   },
   {
-    "revision": "fb0182fcc15a3b715e10",
-    "url": "/LudoPortfolio/static/js/main.447073c4.chunk.js"
+    "revision": "085061ba816fbf0080f0",
+    "url": "/LudoPortfolio/static/js/main.6879f5e9.chunk.js"
   },
   {
     "revision": "6883d4e7f64cb442fbff",
@@ -68,7 +68,7 @@ self.__precacheManifest = [
     "url": "/LudoPortfolio/static/media/background2.9a2a51b2.webp"
   },
   {
-    "revision": "a970adde0bae315bbd4254a30244da8d",
+    "revision": "a751d65402ea5a8c58d186e27d6b1462",
     "url": "/LudoPortfolio/index.html"
   }
 ];
