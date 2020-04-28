@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/LudoPortfolio/static/media/background2.9a2a51b2.webp"
   },
   {
-    "revision": "61fb125f85a80e16f6cd1fa2a55c5c29",
+    "revision": "6e1ee09963a03a74eed0aff1617cd15b",
     "url": "/LudoPortfolio/index.html"
   }
 ];
