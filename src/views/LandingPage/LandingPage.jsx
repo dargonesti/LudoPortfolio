@@ -11,6 +11,7 @@ import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.js
 
 // Sections for this page
 import Section1 from "./Sections/Section1.jsx";
+import SectionSprings from "./Sections/LandingSprings.jsx";
 
 import bg1 from "assets/img/impotx/background1.jpg"; 
 
@@ -39,6 +40,7 @@ const LandingPage = ({loaded, ...props}) => {
           <i>( Mostly from Awwwards.com )</i> <br/>
           <Link to="/inspirations">See them <u>here</u></Link>
 
+          <SectionSprings />
           {false && <Section1 />}
 
         </div>

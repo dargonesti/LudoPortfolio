@@ -4,6 +4,12 @@ import classNames from "classnames";
 
 // Sections for this page
 import Section1 from "./Sections/Section1.jsx";
+import ExamplesSpring from "./Sections/ExamplesSpring.jsx"; 
+
+/*function App() {
+  const props = useSpring({opacity: 1, from: {opacity: 0}})
+  return <animated.div style={props}>I will fade in</animated.div>
+}*/
 
 //import wbg1 from "assets/img/impotx/background1.webp";
 
@@ -30,6 +36,11 @@ const LoadingPage = ({loaded, ...props}) => {
     ... Eventually it'll be animated...</p>
       </div>
       <div className={classNames(classes.main, classes.mainRaised)}>
+
+        <div>
+        <ExamplesSpring />
+        </div>
+
         <div className={classes.container}>
           <Section1 />
         </div>
