@@ -9126,6 +9126,10 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+shadertoy-react@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/shadertoy-react/-/shadertoy-react-1.1.1.tgz#8d70d4660cdb5887623d0c7c54b50e9f7bd836d8"
+
 shallow-clone@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/shallow-clone/-/shallow-clone-0.1.2.tgz#5909e874ba77106d73ac414cfec1ffca87d97060"

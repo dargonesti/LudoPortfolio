@@ -6,6 +6,14 @@ import translatedTxt from 'texts/localization';
  
 import ShadertoyReact from 'shadertoy-react';
 
+////// TODO : Describe recipes for each of : 
+//    Flow
+//    Mindfullness ( in the now )
+//    All of the MBTI Spectrum
+//    World-Wide Mindfullness ( Global Scale )
+//    Timeless Mindfullness ( Thinking in Lifetimes )
+//    Memory Optimized ( Perfect state for Memory Palaces )
+
 const fs = `
 void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
   vec2 uv = fragCoord.xy/iResolution.xy;
