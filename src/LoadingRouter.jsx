@@ -1,8 +1,8 @@
-import React, { useEffect, useState, Suspense, lazy } from "react"; 
+import React, { useEffect, useState, Suspense, lazy } from "react";
 
 //// TODO : Move these after the page loader
 import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+import { HashRouter, Router, Route, Switch } from "react-router-dom";
 import { StoreProvider } from 'utils/mobx/ConfigStore';
 import indexRoutes from "routes/index.jsx";
 
@@ -15,10 +15,10 @@ const LoadingRouter = (props) => {
 
   return (
     <StoreProvider>
-      <Suspense fallback={<div className="initial-parent">  
-      <div className="initial-loader" />
-        </div>}>
-        <Router history={hist}>
+      <Suspense fallback={<div className="initial-parent">
+        <div className="initial-loader" />
+      </div>}>
+        <HashRouter basename='/' history={hist}>
           <Switch>
             {indexRoutes.map((prop, key) => { //indexRoutes ou debounceRenderPages
               let Comp = prop.component;
@@ -26,11 +26,11 @@ const LoadingRouter = (props) => {
                 <Comp />)} />;
             })}
           </Switch>
-        </Router>
+        </HashRouter>
       </Suspense>
     </StoreProvider>);
-  };
-   
-  
+};
+
+
 
 export default LoadingRouter;
