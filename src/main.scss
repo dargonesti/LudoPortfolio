@@ -1,22 +1,78 @@
-body {
-    /*font-family: "Advent Pro";*/
-    font-family: "Raleway";
-    color: #fff;
-    background-color: #151b33;
-    /*background-color: #fab;*/
+:root {
+  --bg-color1: hsl(105, 100%, 86%);
+  --font-color1: rgb(28, 68, 16);
 
-    width:100%;
-    text-align:center;
+  --bg-color2: hsl(109, 13%, 25%);
+  --font-color2: rgb(168, 223, 173);
+}
+
+*{
+    z-index:1;
+}
+
+body {
+  font-family: "Advent Pro";
+  /*font-family: "Raleway";*/
+  color: var(--font-color1);
+  background-color: var(--bg-color1);
+  /*background-color: #fab;*/
+
+  width: 100%;
+  text-align: center;
 }
 
 #root {
-    width: 100%;
+  width: 100%;
 }
 
-i{
-    font-family: "initial";
+i {
+  font-family: "initial";
 }
 
-a{
-    color: #eca3a3;
+a {
+  color: #eca3a3;
+  text-decoration:none;
+}
+
+.overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:0.5;
+}
+.overlayed{
+    position: relative;
+}
+
+#mainHeader {
+    color:black;
+    h1{
+        font-size: 70px;
+        font-weight: 500;
+        letter-spacing: 2px;
+    }
+    h4{
+        font-size: 35px;
+        font-weight: 400;
+    }
+    a{
+        font-size:25px;
+        font-weight: 600;
+        color: #121212;
+        letter-spacing: 4px;
+        border: 2px solid #fafafa;
+        border-radius:10px;
+        margin: 20px 0 0 0;
+        padding:7px 15px;
+
+    }
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
 }

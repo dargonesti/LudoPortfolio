@@ -12,7 +12,7 @@ const minTimeImport = (target, minTime)=>lazy(() =>  Promise.all([
 .then(([moduleExports]) => moduleExports)
 )
  
-const LoadingRouter = minTimeImport(import("LoadingRouter.jsx"), 2000); 
+const LoadingRouter = minTimeImport(import("LoadingRouter.jsx"), 20); 
 
 console.log(process.env); 
 
