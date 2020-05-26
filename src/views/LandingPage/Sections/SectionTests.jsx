@@ -13,7 +13,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
   fragColor = vec4(col,1.0);
 }`
 
-const Section1 = (props) => {
+const SectionTests = (props) => {
 
   let { classes } = props;
   if (classes == null) classes = {};
@@ -28,4 +28,4 @@ const Section1 = (props) => {
   );
 }
 
-export default (Section1);
+export default (SectionTests);

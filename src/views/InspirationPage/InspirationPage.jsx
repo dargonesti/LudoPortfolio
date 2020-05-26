@@ -22,7 +22,9 @@ class Components extends React.Component {
             <li><a href="https://www.akufen.ca/">Akufen.ca, minimalist, good mobile </a></li>
             <li><a href="https://fwa100.jam3.com/">FWA100, Minimalist, animated Intro with Gradient ( but just a 3js demo )</a></li>
             <li><a href="https://www.madeleinedalla.com/">Madeleine Dalla by Marvin Schwaibold ( Photo protfolio )</a></li>
-
+            
+            <li><a href="https://studiochevojon.com/">Studio ChevoJon by Pam Studio ( Photo protfolio, minimalist, paralax )</a></li>
+            <li><a href="https://codesandbox.io/s/nwq4j1j6lm?from-embed">Sweet Paralax Demo by Springs</a></li>
 
           </ul>
         </div> 

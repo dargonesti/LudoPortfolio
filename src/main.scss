@@ -4,11 +4,14 @@
 
   --bg-color2: hsl(109, 13%, 25%);
   --font-color2: rgb(168, 223, 173);
-
 }
 
-*{
-    z-index:1;
+* {
+  z-index: 1;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }
 
 body {
@@ -20,6 +23,16 @@ body {
 
   width: 100%;
   text-align: center;
+  
+  background: linear-gradient(145deg, #0dc293, #0d8cc2);
+  
+  /*background-size: 400% 400%;
+  animation: AnimatedBG 6s ease infinite;*/
+}
+div {
+  background: unset;
+  animation: unset;
+  background-color: unset;
 }
 
 #root {
@@ -32,43 +45,42 @@ i {
 
 a {
   color: #eca3a3;
-  text-decoration:none;
+  text-decoration: none;
 }
 
-.overlay{
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    z-index:0.5;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0.5;
 }
-.overlayed{
-    position: relative;
+.overlayed {
+  position: relative;
 }
 
 #mainHeader {
-    color:black;
-    h1{
-        font-size: 70px;
-        font-weight: 500;
-        letter-spacing: 2px;
-    }
-    h4{
-        font-size: 35px;
-        font-weight: 400;
-    }
-    a{
-        font-size:25px;
-        font-weight: 600;
-        color: #121212;
-        letter-spacing: 4px;
-        border: 2px solid #fafafa;
-        border-radius:10px;
-        margin: 20px 0 0 0;
-        padding:7px 15px;
-
-    }
+  color: black;
+  h1 {
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+  h4 {
+    font-size: 35px;
+    font-weight: 400;
+  }
+  a {
+    font-size: 25px;
+    font-weight: 600;
+    color: #121212;
+    letter-spacing: 4px;
+    border: 2px solid #121212; /*#fafafa;*/
+    border-radius: 10px;
+    margin: 20px 0 0 0;
+    padding: 7px 15px;
+  }
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -78,13 +90,43 @@ a {
   flex-flow: column;
 }
 
-.contentTest{
-    background: #E6DADA;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-    background: #8e9eab;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.contentTest {
+  padding: 20px;
+  
+}
 
+.links{
+  margin: 20px 15px;
+}
+
+@media (max-width: 1049px) {
+  .links {
+    display: flex;
+    flex-direction: column;
+  }
+} 
+
+@media (min-width: 1050px) {
+  .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-gap: 20px;
+
+    a {
+      margin: 0 !important;
+    }
+  }
+}
+@media (min-width: 1400px) {
+  .links {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+/* Lags on scroll, animate with Springs */
+@keyframes AnimatedBG {
+  0%{background-position:0% 14%}
+  50%{background-position:100% 87%}
+  100%{background-position:0% 14%}
 }

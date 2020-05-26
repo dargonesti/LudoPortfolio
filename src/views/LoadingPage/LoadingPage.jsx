@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Suspense, lazy } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
