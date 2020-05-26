@@ -19,11 +19,11 @@ const Section1 = (props) => {
   if (classes == null) classes = {};
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>{translatedTxt.landingWorkWithUs}</h2>
+      <h2 className={classes.title}>Test Shader toy</h2>
       <h4 className={classes.description}>
-        {translatedTxt.landingDesc}
+        
       </h4>
-    <ShadertoyReact fs={fs}/>
+    <ShadertoyReact style={{height:121}} height={123} fs={fs}/>
     </div>
   );
 }

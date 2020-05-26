@@ -4,6 +4,7 @@
 
   --bg-color2: hsl(109, 13%, 25%);
   --font-color2: rgb(168, 223, 173);
+
 }
 
 *{
@@ -75,4 +76,15 @@ a {
   justify-content: center;
   align-items: center;
   flex-flow: column;
+}
+
+.contentTest{
+    background: #E6DADA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }

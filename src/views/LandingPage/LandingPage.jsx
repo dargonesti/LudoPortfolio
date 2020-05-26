@@ -34,15 +34,20 @@ const LandingPage = ({loaded, ...props}) => {
       
       <div id="mainHeader" className={classes.container}  
       style={{backgroundImage: `url(${bg1}` }}>
-      <div class="overlay" style={{backgroundColor: "rgba(255,255,255,0.3)"}} />
+      <div class="overlay" style={{backgroundColor: "rgba(255,255,255,0.5)"}} />
         
         <h1 className={classes.title}>{translatedTxt.landingTitre}</h1>
-        <h4>
-          {translatedTxt.landingFirstDesc}</h4>
-          <a href="https://instagram.com/ludovicmigneault" >Me Contacter</a>
+        <h4>Come back next week for more stuff!</h4>
+          <a href="https://medium.com/@ludovic.migneault" >Medium</a>
+          <a href="https://unsplash.com/@dargonesti" >Unsplash</a>
+          <a href="https://www.facebook.com/ludovic.migneault" >Facebook</a>
+          <a href="https://www.youtube.com/user/migneault62/" >Youtube</a>
+          <a href="https://dashboard.twitch.tv/u/dargonesti" >Twitch</a>
+          <a href="https://instagram.com/ludovicmigneault" >Instagram</a>
+          
       </div>
 
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div className="contentTest">
         <div className={classes.container}>
           <h2>Components : </h2>
           <Link to="/components">See them <u>here</u></Link>
