@@ -8,28 +8,28 @@ self.__precacheManifest = [
     "url": "/static/js/1.823d8532.chunk.js"
   },
   {
-    "revision": "49bc436dd437ef876eb6",
-    "url": "/static/css/main.03e4bc82.chunk.css"
+    "revision": "6c1bd9f3abdab5a2967a",
+    "url": "/static/css/main.4307a4b5.chunk.css"
   },
   {
-    "revision": "49bc436dd437ef876eb6",
-    "url": "/static/js/main.021bd2f0.chunk.js"
+    "revision": "6c1bd9f3abdab5a2967a",
+    "url": "/static/js/main.a5783e3f.chunk.js"
   },
   {
-    "revision": "46c6d2d8a0dd74118187",
-    "url": "/static/js/runtime~main.f91f2e11.js"
+    "revision": "6a160219e6e57c99675f",
+    "url": "/static/js/runtime~main.d2ca8ed0.js"
   },
   {
-    "revision": "c735a2bfb630ec352d4a",
-    "url": "/static/js/4.baf67792.chunk.js"
+    "revision": "ded2dd000067d0d628c0",
+    "url": "/static/js/4.1e299ca0.chunk.js"
   },
   {
     "revision": "2626e6880ca045c8e14f",
     "url": "/static/js/5.24c5ec8f.chunk.js"
   },
   {
-    "revision": "8c15b9ad7a2a7cb59f40",
-    "url": "/static/js/6.f746b6f4.chunk.js"
+    "revision": "ddacd896be621acca8e0",
+    "url": "/static/js/6.08bd9fd7.chunk.js"
   },
   {
     "revision": "1581c72ffebf01519a15",
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/static/media/redBlueBall.a3b6351a.jpg"
   },
   {
-    "revision": "eef177c6fff57f2f786495c9f3c24300",
-    "url": "/static/media/background1.eef177c6.jpg"
+    "revision": "70727a43174faa9ce653bc3c98c2ba47",
+    "url": "/static/media/3_XT208535.70727a43.webp"
   },
   {
     "revision": "7f412c9c1de9dcfbbe50a137fa445127",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/static/media/background2.9a2a51b2.webp"
   },
   {
-    "revision": "86a2f1264ab4fc307c4439628e3177d3",
+    "revision": "25b5083c6a34a85e196c707256c3fa69",
     "url": "/index.html"
   }
 ];
