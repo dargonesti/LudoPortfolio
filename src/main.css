@@ -18,9 +18,11 @@ body {
   /*background-color: #fab;*/
   width: 100%;
   text-align: center;
+  overflow-x: hidden;
   background: linear-gradient(145deg, #0dc293, #0d8cc2);
   /*background-size: 400% 400%;
-  animation: AnimatedBG 6s ease infinite;*/ }
+  animation: AnimatedBG 6s ease infinite;*/
+  height: 5000px; }
 
 div {
   background: unset;
@@ -81,6 +83,34 @@ a {
 .links {
   margin: 20px 15px; }
 
+#scrollPath {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 7px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05); }
+
+#progressbar, #progressbar:before, #progressbar:after {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 7px;
+  height: 100%;
+  background: linear-gradient(to top, #95d98c, #8cbfd9);
+  animation: rotateHue 5s linear infinite; }
+
+/* IDK why it doesn't work
+#progressbar:before, #progressbar:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  filter:blur(30px);
+}
+#progressbar:after {
+  position: absolute;
+  filter:blur(30px);
+}*/
 @media (max-width: 1049px) {
   .links {
     display: flex;
@@ -99,6 +129,13 @@ a {
     grid-template-columns: 1fr 1fr 1fr; } }
 
 /* Lags on scroll, animate with Springs */
+@keyframes rotateHue {
+  0%,
+  100% {
+    filter: hue-rotate(0deg); }
+  50% {
+    filter: hue-rotate(360deg); } }
+
 @keyframes AnimatedBG {
   0% {
     background-position: 0% 14%; }
