@@ -13,10 +13,15 @@ import SectionTests from "./Sections/SectionTests.jsx";
 
 //import bg1 from "assets/img/DSCF9114_4.jpg"; 
 import bg1 from "assets/img/3_XT208535.webp";
+import passingImg1 from "assets/img/PortraitsMoi/Env/manoir.webp";
+import passingImg2 from "assets/img/PortraitsMoi/Env/screenBg.webp";
+import stoppingImg1 from "assets/img/PortraitsMoi/Noir/potatoCrossed.jpg";
+import stoppingImg2 from "assets/img/PortraitsMoi/Nature/cote1.webp";
 
 import translatedTxt from 'texts/localization';
 //import myStyle from "assets/scss/index.scss";  
 import "../../main.scss"
+import "./landing.scss"
 
 // TODO: Paralax from : https://codesandbox.io/s/nwq4j1j6lm?from-embed
 
@@ -74,9 +79,33 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
 
   let titre = translatedTxt.landingTitre;
   let toCorner = useSpring({
-    from: { top: "50%", left: "50%", marginLeft: 0, fontSize: 150, transform: `translate( -50%, -50%)` },
-    to: { top: "0%", left: "0%", marginLeft: 20, fontSize: 50, transform: `translate( 0%, 0%)` },
-    delay: 1400, config: { duration: 1900, easing: eInOut }
+    from: { top: "50%", left: "50%", marginLeft: 0, transform: `translate( -50%, -50%)` },
+    to: { top: "0%", left: "0%", marginLeft: 20, transform: `translate( 0%, 0%)` },
+    delay: 2000, config: { duration: 1900, easing: eInOut }
+  })
+
+  const delayPassingImages = 1400;
+  const stoppedDelay = 500;
+
+  let passingAnim1 = useSpring({
+    from:{top: "105%"},
+    to:{top: "-100%"},
+    delay: delayPassingImages, config: { duration: 1900, easing: eInOut }
+  })
+  let passingAnim2 = useSpring({
+    from:{top: "-100%"},
+    to:{top: "105%"},
+    delay: delayPassingImages, config: { duration: 1900, easing: eInOut }
+  })
+  let stoppedAnim1 = useSpring({
+    from:{top: "-100%"},
+    to:{top: "20%"},
+    delay: delayPassingImages+stoppedDelay, config: { duration: 1400, easing: eInOut }
+  })
+  let stoppedAnim2 = useSpring({
+    from:{bottom: "-100%"},
+    to:{bottom: "20%"},
+    delay: delayPassingImages+stoppedDelay, config: { duration: 1400, easing: eInOut }
   })
 
   useEffect(() => {
@@ -98,16 +127,15 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
   */
 
   return (
-    <div id="mainContainer" offset={0} speed={0.8} style={{ background: "linear-gradient(145deg, #0dc293, #0d8cc2)" }}>
+    <div id="mainContainer" offset={0} speed={0.8}
+     style={{ background: "var( --bg-color2 )" }}>
       <header className={"accueil1"} style={{ margin: 0 }}>
         <div id="mainHeader" className={classes.container} >
-          {false &&
-            <div className="overlay" style={{ backgroundColor: "rgba(255,255,255,0.5)" }} />}
-
+        
           <FadingHeader>
-            <h2>test</h2>
+            <h2 style={{color:"white"}}>test</h2>
 
-            <animated.h1 className={classes.title} style={{
+            <animated.h1 className={"initialName"} style={{
               position: "fixed",
               ...toCorner
             }}>
@@ -116,42 +144,20 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
 
           </FadingHeader>
 
-          {false && <h4>Come back next week for more stuff!</h4>}
-          <div className="links">
-            {socialProps.map(({ x, y, rot, scale }, i) => (
-              <animated.a key={i} style={{ transform: interpolate([rot, scale, x, y], trans) }} href={socials[i].href}>
-                {socials[i].name}
-              </animated.a>
-            ))}
-            {false && <>
-              <a href="https://www.facebook.com/ludovic.migneault" >Facebook</a>
-              <a href="https://instagram.com/ludovicmigneault" >Instagram</a>
-              <a href="https://unsplash.com/@dargonesti" >Unsplash</a>
-              <a href="https://medium.com/@ludovic.migneault" >Medium</a>
-              <a href="https://www.youtube.com/user/migneault62/" >Youtube</a>
-              <a href="https://dashboard.twitch.tv/u/dargonesti" >Twitch</a>
-            </>}
+          <div id="firstPassingImages">
+          <animated.img src={passingImg1} alt="demo image 1" className="passingImages" 
+          style={{left:"25%", ...passingAnim1}}/>
+          <animated.img src={passingImg2} alt="demo image 2" className="passingImages" 
+          style={{right:"25%", ...passingAnim2}}/>
+          <animated.img src={stoppingImg1} alt="demo image 3" className="passingImages" 
+          style={{left:"10%", ...stoppedAnim1}}/>
+          <animated.img src={stoppingImg2} alt="demo image 4" className="passingImages" 
+          style={{right:"10%", ...stoppedAnim2}}/>
+            
           </div>
+
         </div>
 
-        {new Array(0).fill(1).map((_, i) => (<p key={i}>text</p>))}
-
-        {showTests && (<>
-          <div className="contentTest">
-            <div className={classes.container}>
-              <h2>Components : </h2>
-              <Link to="/components">See them <u>here</u></Link>
-
-              <h2>Inspiration : </h2>
-              <i>( Mostly from Awwwards.com )</i> <br />
-              <Link to="/inspirations">See them <u>here</u></Link>
-
-              {true &&
-                <SectionTests />}
-
-            </div>
-          </div>
-        </>)}
       </header>
     </div>);
 }
