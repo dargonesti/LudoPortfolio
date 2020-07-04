@@ -38,8 +38,8 @@ const AnimatedHeaderText = ({ text, startDelay, style }) => {
 
 AnimatedHeaderText.propTypes = {
     classes: PropTypes.object,
-    text: PropTypes.array.isRequired,
-    startDealy: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    startDealy: PropTypes.number,
     style: PropTypes.object
 };
 
