@@ -5,7 +5,7 @@ import { useSpring, useSprings, animated, interpolate, config} from 'react-sprin
 
 // @material-ui/icons
 
-
+import AnimatedHeaderText from "../MyComponents/AnimatedHeaderText.jsx";
 
 // Sections for this page
 import SectionTests from "./Sections/SectionTests.jsx";
@@ -15,8 +15,7 @@ import bg1 from "assets/img/3_XT208535.webp";
 
 import translatedTxt from 'texts/localization';
 //import myStyle from "assets/scss/index.scss";  
-import "../../main.scss"
-import { range } from "../../../node_modules/rxjs/index.js";
+import "../../main.scss" 
 
 // TODO: Paralax from : https://codesandbox.io/s/nwq4j1j6lm?from-embed
 
@@ -76,9 +75,7 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
   let toCorner = useSpring({from:{top:"50%", left:"50%", marginLeft:0, fontSize:150, transform: `translate( -50%, -50%)`},
                to:{top:"0%", left:"0%", marginLeft:20, fontSize:50, transform: `translate( 0%, 0%)`},
                delay:1400, config:{duration: 1900, easing: eInOut}})
-  let [lettresTitre, setTites] = useSprings(titre.length, i => ({ ...toTitre(i), from: fromTitre(i), config:{duration: 500, easing: eInOut }}))
-
-
+  
   useEffect(()=>{
     window.onscroll = ()=>{
       
@@ -104,18 +101,13 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
             {false &&
               <div className="overlay" style={{ backgroundColor: "rgba(255,255,255,0.5)" }} />}
 
+
+
 <animated.h1 className={classes.title} style={{
             position: "fixed",
             ...toCorner
           }}>
-            {lettresTitre.map(({ opacity, rot }, i) => (
-              <animated.span key={i} style={{
-                opacity: opacity,
-                transform: interpolate([rot], transTitre)
-              }}>
-                {titre.split("")[i]}
-              </animated.span>
-            ))}
+                <AnimatedHeaderText text={titre} startDelay={1234} />
           </animated.h1>
 
 
