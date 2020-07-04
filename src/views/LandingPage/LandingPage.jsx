@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import impoHOC from "HoC/impoHOC.js";
 import { useSpring, useSprings, animated, interpolate, config } from 'react-spring';
-
+import { Keyframes } from 'react-spring/renderprops'
 // @material-ui/icons
 
 import AnimatedHeaderText from "../MyComponents/AnimatedHeaderText.jsx";
@@ -13,11 +13,12 @@ import SectionTests from "./Sections/SectionTests.jsx";
 
 //import bg1 from "assets/img/DSCF9114_4.jpg"; 
 import bg1 from "assets/img/3_XT208535.webp";
-import passingImg1 from "assets/img/PortraitsMoi/Env/manoir.webp";
-import passingImg2 from "assets/img/PortraitsMoi/Env/screenBg.webp";
-import stoppingImg1 from "assets/img/PortraitsMoi/Noir/potatoCrossed.jpg";
-import stoppingImg2 from "assets/img/PortraitsMoi/Nature/cote1.webp";
+import passingImg1 from "assets/img/PortraitsMoi/500/manoir.webp";
+import passingImg2 from "assets/img/PortraitsMoi/500/choice.webp";
+import stoppingImg1 from "assets/img/PortraitsMoi/500/potatoCrossed.webp";
+import stoppingImg2 from "assets/img/PortraitsMoi/500/cote1.webp";
 
+import delay from 'delay'
 import translatedTxt from 'texts/localization';
 //import myStyle from "assets/scss/index.scss";  
 import "../../main.scss"
@@ -25,30 +26,42 @@ import "./landing.scss"
 
 // TODO: Paralax from : https://codesandbox.io/s/nwq4j1j6lm?from-embed
 
-const useProgressiveImage = src => {
-  const [sourceLoaded, setSourceLoaded] = useState(null)
-
-  useEffect(() => {
-    const img = new Image()
-    img.src = src
-    img.onload = () => setSourceLoaded(src)
-  }, [src])
-
-  return sourceLoaded
-}
-
-const socials = [
-  { href: "https://www.facebook.com/ludovic.migneault", name: "Facebook" },
-  { href: "https://instagram.com/ludovicmigneault", name: "Instagram" },
-  { href: "https://unsplash.com/@dargonesti", name: "Unsplash" },
-  { href: "https://medium.com/@ludovic.migneault", name: "Medium" },
-  { href: "https://www.youtube.com/user/migneault62/", name: "Youtube" },
-  { href: "https://dashboard.twitch.tv/u/dargonesti", name: "Twitch" }
-]
-
+// ANIMATION CONSTANTS
+const delayPassingImages = 2000;
+const stoppedDelay = 500;
 
 // INTERPOLATIONS
 const eInOut = t => t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+
+const PausingAnim1 = ({ cb }) => Keyframes.Spring({
+  default: async (next, cancel, ownProps) => {
+    await next({
+      from: { top: "-100%" },
+      to: { top: "20%" },
+      delay: delayPassingImages + stoppedDelay, config: { duration: 1400, easing: eInOut }
+    })
+    cb()
+    console.log("IN THE PAUSE!!!")
+    await delay(1000)
+    await next({
+      to: { top: "-100%" }, config: { duration: 1400, easing: eInOut }
+    })
+  }
+})
+
+const PausingAnim2 = ({ cb }) => Keyframes.Spring(async (next, cancel, ownProps) => {
+    await next({
+      from: { top: "-100%" },
+      to: { top: "20%" },
+      delay: delayPassingImages + stoppedDelay, config: { duration: 1400, easing: eInOut }
+    })
+    cb()
+    console.log("IN THE PAUSE!!!")
+    await delay(1000)
+    await next({
+      to: { top: "-100%" }, config: { duration: 1400, easing: eInOut }
+    })  
+})
 
 //anim - Titre
 const fromTitre = i => ({ opacity: 0, rot: 90 })
@@ -74,38 +87,34 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
   let { classes, ...rest } = props;
   if (classes == null) classes = {};
 
-  let [socialProps, set] = useSprings(socials.length, i => ({ ...to(i), from: from(i), config: { mass: 1, tension: 15, friction: 6 } })) // config.gentle
-
+  let [showHeader1, setHeader1Shown] = useState(true)
 
   let titre = translatedTxt.landingTitre;
-  let toCorner = useSpring({
-    from: { top: "50%", left: "50%", marginLeft: 0, transform: `translate( -50%, -50%)` },
-    to: { top: "0%", left: "0%", marginLeft: 20, transform: `translate( 0%, 0%)` },
-    delay: 2000, config: { duration: 1900, easing: eInOut }
-  })
-
-  const delayPassingImages = 1400;
-  const stoppedDelay = 500;
 
   let passingAnim1 = useSpring({
-    from:{top: "105%"},
-    to:{top: "-100%"},
-    delay: delayPassingImages, config: { duration: 1900, easing: eInOut }
+    from: { ratio: 0, left: "0%", top: "20%", transform: "translate(-100%,0)" },
+    to: { ratio: 1, left: "100%", top: "20%", transform: "translate(0,0)" },
+    delay: delayPassingImages, config: { duration: 1900, easing: eInOut },
+    onFrame: ({ ratio }) => {
+      if (showHeader1 && ratio > 0.4) {
+        setHeader1Shown(false);
+      }
+    }
   })
   let passingAnim2 = useSpring({
-    from:{top: "-100%"},
-    to:{top: "105%"},
+    from: { bottom: "20%", right: "0%", transform: "translate(100%,0)" },
+    to: { bottom: "20%", right: "100%", transform: "translate(0%,0)" },
     delay: delayPassingImages, config: { duration: 1900, easing: eInOut }
   })
   let stoppedAnim1 = useSpring({
-    from:{top: "-100%"},
-    to:{top: "20%"},
-    delay: delayPassingImages+stoppedDelay, config: { duration: 1400, easing: eInOut }
+    from: { top: "-100%", },
+    to: { top: "20%" },
+    delay: delayPassingImages + stoppedDelay, config: { duration: 1400, easing: eInOut }
   })
   let stoppedAnim2 = useSpring({
-    from:{bottom: "-100%"},
-    to:{bottom: "20%"},
-    delay: delayPassingImages+stoppedDelay, config: { duration: 1400, easing: eInOut }
+    from: { bottom: "-100%" },
+    to: { bottom: "20%" },
+    delay: delayPassingImages + stoppedDelay, config: { duration: 1400, easing: eInOut }
   })
 
   useEffect(() => {
@@ -128,32 +137,35 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
 
   return (
     <div id="mainContainer" offset={0} speed={0.8}
-     style={{ background: "var( --bg-color2 )" }}>
+      style={{ background: "var( --bg-color2 )" }}>
       <header className={"accueil1"} style={{ margin: 0 }}>
         <div id="mainHeader" className={classes.container} >
-        
+
           <FadingHeader>
-            <h2 style={{color:"white"}}>test</h2>
-
-            <animated.h1 className={"initialName"} style={{
-              position: "fixed",
-              ...toCorner
-            }}>
-              <AnimatedHeaderText text={titre} startDelay={1234} />
-            </animated.h1>
-
+            <h2 style={{ color: "white" }}>test</h2>
+            {showHeader1 &&
+              <h1 className={"initialName"} style={{ top: "50%", left: "50%", marginLeft: 0, transform: `translate( -50%, -50%)`, position: "fixed" }}>
+                <AnimatedHeaderText text={titre} startDelay={1234} />
+              </h1>
+            }
           </FadingHeader>
 
           <div id="firstPassingImages">
-          <animated.img src={passingImg1} alt="demo image 1" className="passingImages" 
-          style={{left:"25%", ...passingAnim1}}/>
-          <animated.img src={passingImg2} alt="demo image 2" className="passingImages" 
-          style={{right:"25%", ...passingAnim2}}/>
-          <animated.img src={stoppingImg1} alt="demo image 3" className="passingImages" 
-          style={{left:"10%", ...stoppedAnim1}}/>
-          <animated.img src={stoppingImg2} alt="demo image 4" className="passingImages" 
-          style={{right:"10%", ...stoppedAnim2}}/>
-            
+            <animated.img src={passingImg1} alt="demo image 1" className="passingImages"
+              style={{ ...passingAnim1 }} />
+            <animated.img src={passingImg2} alt="demo image 2" className="passingImages"
+              style={{ ...passingAnim2 }} />
+
+            <PausingAnim2 cb={()=>console.log("My cb")} state="default">
+              {styles => <img src={stoppingImg1} alt="demo image 3" className="passingImages"
+                style={{ left: "10%", ...styles }} />}
+            </PausingAnim2>
+
+            <animated.img src={stoppingImg1} alt="demo image 3" className="passingImages"
+              style={{ left: "10%", ...stoppedAnim1 }} />
+            <animated.img src={stoppingImg2} alt="demo image 4" className="passingImages"
+              style={{ right: "10%", ...stoppedAnim2 }} />
+
           </div>
 
         </div>
