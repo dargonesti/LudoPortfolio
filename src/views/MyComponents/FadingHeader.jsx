@@ -11,7 +11,6 @@ import useAnimation from './use-animation';
 // INTERPOLATIONS
 const eInOut = t => t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t
 
-
 const FadingHeader = ({ children, startDelay, style }) => {
 
     const [ref, inView, entry] = useInView({
@@ -43,7 +42,6 @@ const FadingHeader = ({ children, startDelay, style }) => {
 
 FadingHeader.propTypes = {
     classes: PropTypes.object,
-    children: PropTypes.element,
     style: PropTypes.object
 };
 

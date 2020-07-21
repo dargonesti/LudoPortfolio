@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import impoHOC from "HoC/impoHOC.js";
-import { useSpring, useSprings, animated, interpolate, config } from 'react-spring';
+//config.default, gentle, wobbly, stiff, slow, molasses
+import { useSpring, useTransition, animated, interpolate, config } from 'react-spring';
 import { Keyframes } from 'react-spring/renderprops'
 // @material-ui/icons
 
@@ -27,11 +28,12 @@ import "./landing.scss"
 // TODO: Paralax from : https://codesandbox.io/s/nwq4j1j6lm?from-embed
 
 // ANIMATION CONSTANTS
-const delayPassingImages = 2000;
+const delayPassingImages = 1000;
 const stoppedDelay = 500;
 
 // INTERPOLATIONS
 const eInOut = t => t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+const eInOut2 = t => eInOut(eInOut(t))
 
 const PausingAnim1 = ({ cb }) => Keyframes.Spring({
   default: async (next, cancel, ownProps) => {
@@ -47,20 +49,6 @@ const PausingAnim1 = ({ cb }) => Keyframes.Spring({
       to: { top: "-100%" }, config: { duration: 1400, easing: eInOut }
     })
   }
-})
-
-const PausingAnim2 = ({ cb }) => Keyframes.Spring(async (next, cancel, ownProps) => {
-    await next({
-      from: { top: "-100%" },
-      to: { top: "20%" },
-      delay: delayPassingImages + stoppedDelay, config: { duration: 1400, easing: eInOut }
-    })
-    cb()
-    console.log("IN THE PAUSE!!!")
-    await delay(1000)
-    await next({
-      to: { top: "-100%" }, config: { duration: 1400, easing: eInOut }
-    })  
 })
 
 //anim - Titre
@@ -88,6 +76,7 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
   if (classes == null) classes = {};
 
   let [showHeader1, setHeader1Shown] = useState(true)
+  let [introDone, setIntroDone] = useState(false)
 
   let titre = translatedTxt.landingTitre;
 
@@ -106,16 +95,44 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
     to: { bottom: "20%", right: "100%", transform: "translate(0%,0)" },
     delay: delayPassingImages, config: { duration: 1900, easing: eInOut }
   })
+
+  let stopConf = { duration: 1400, easing: eInOut2 }//config.slow//
   let stoppedAnim1 = useSpring({
     from: { top: "-100%", },
-    to: { top: "20%" },
-    delay: delayPassingImages + stoppedDelay, config: { duration: 1400, easing: eInOut }
+    to: async (next, cancel) => {
+      await delay(delayPassingImages + stoppedDelay)
+      await next({ top: "20%" })
+      //await delay(500)
+      await next({ top: "100%" })
+    }, config: stopConf
   })
+  
+  console.log("define chain")
   let stoppedAnim2 = useSpring({
     from: { bottom: "-100%" },
-    to: { bottom: "20%" },
-    delay: delayPassingImages + stoppedDelay, config: { duration: 1400, easing: eInOut }
+    to: async (next, cancel) => {
+      await delay(delayPassingImages + stoppedDelay)
+      await next({ to: { bottom: "20%" } })
+     // await delay(500)
+      await next({ to: { bottom: "100%" } ,
+      onStart: ()=>{
+        setIntroDone(true)
+        console.log("chain second 2")
+      },
+      onRest: ()=>console.log("after chain 2")})
+      setIntroDone(true)
+    }, config: stopConf
   })
+
+  let postIntroAnim = useTransition(
+    introDone, null,
+    {
+      from: { height: "0%", opacity:0 },
+      enter: { height: "100%" , opacity:1},
+      from: { height: "0%" , opacity:0},
+      config: { duration: 1000, easing: eInOut }
+    })
+
 
   useEffect(() => {
     window.onscroll = () => {
@@ -156,17 +173,19 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
             <animated.img src={passingImg2} alt="demo image 2" className="passingImages"
               style={{ ...passingAnim2 }} />
 
-            <PausingAnim2 cb={()=>console.log("My cb")} state="default">
-              {styles => <img src={stoppingImg1} alt="demo image 3" className="passingImages"
-                style={{ left: "10%", ...styles }} />}
-            </PausingAnim2>
-
             <animated.img src={stoppingImg1} alt="demo image 3" className="passingImages"
               style={{ left: "10%", ...stoppedAnim1 }} />
             <animated.img src={stoppingImg2} alt="demo image 4" className="passingImages"
               style={{ right: "10%", ...stoppedAnim2 }} />
 
           </div>
+          {postIntroAnim.map(({ item, key, props }) => (
+            item && <animated.div key={key} style={{ ...props }}>
+              <h1>It Worked!!! </h1>
+              <h2>Again</h2>
+              <h3>Yup</h3>
+            </animated.div>
+          ))}
 
         </div>
 
