@@ -1,7 +1,8 @@
 import React, { lazy} from "react"; 
   
 //import LandingPage from "views/LandingPage/LandingPage.jsx";
-const LandingPage = lazy(() => import("views/LandingPage/LandingPage.jsx"));
+//const LandingPage = lazy(() => import("views/LandingPage/LandingPage.jsx"));
+const LandingPage = lazy(() => import("views/LandingPage/LandingPageNoAnim.jsx"));
 const Components = lazy(() => import("views/Components/Components.jsx"));
 const ProfilePage = lazy(() => import("views/ProfilePage/ProfilePage.jsx"));
 const Inspiration = lazy(() => import("views/InspirationPage/InspirationPage.jsx"));

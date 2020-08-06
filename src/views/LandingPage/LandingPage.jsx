@@ -25,6 +25,8 @@ import translatedTxt from 'texts/localization';
 import "../../main.scss"
 import "./landing.scss"
 
+////////////USE Palette : https://coolors.co/30bced-303036-fffaff-fc5130-050401
+
 // TODO: Paralax from : https://codesandbox.io/s/nwq4j1j6lm?from-embed
 
 // ANIMATION CONSTANTS
@@ -124,12 +126,24 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
     }, config: stopConf
   })
 
+  let mainBodyAnimation = useSpring({
+    from: {backgroundColor: "hsl(20,15%, 10%)"},
+    to: async(next ,cancel) =>{
+      await delay(delayPassingImages + stoppedDelay)
+      await next({to: {backgroundColor: "hsl(175, 90%, 40%)"}})    
+      
+      await delay(stoppedDelay-123)
+      await next({to: {backgroundColor: "hsl(20,0%, 100%)"}})      
+    },
+    config: { duration: 1000, easing: eInOut }
+  })
+
   let postIntroAnim = useTransition(
     introDone, null,
     {
       from: { height: "0%", opacity:0 },
       enter: { height: "100%" , opacity:1},
-      from: { height: "0%" , opacity:0},
+      to: { height: "0%" , opacity:0},
       config: { duration: 1000, easing: eInOut }
     })
 
@@ -150,13 +164,15 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
   /*  <SectionSprings />
   ,backgroundSize:"cover", backgroundPosition:"center", minHeight:"100vh", display: "flex", justifyContent: "center", alignItems:"center", flexFlow:"column"
   #mainHeader: style={{ backgroundImage: imgLoaded ? `url(${imgLoaded})` : "linear-gradient(to bottom, #eef2f3, #8e9eab)" }} 
-  */
+  
+      style={{ background: "var( --bg-color2 )" }}
+      */
 
   return (
-    <div id="mainContainer" offset={0} speed={0.8}
-      style={{ background: "var( --bg-color2 )" }}>
+    <div id="mainContainer" offset={0} speed={0.8}>
       <header className={"accueil1"} style={{ margin: 0 }}>
-        <div id="mainHeader" className={classes.container} >
+        <animated.div id="mainHeader" className={classes.container} 
+        style={mainBodyAnimation} >
 
           <FadingHeader>
             <h2 style={{ color: "white" }}>test</h2>
@@ -181,13 +197,11 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
           </div>
           {postIntroAnim.map(({ item, key, props }) => (
             item && <animated.div key={key} style={{ ...props }}>
-              <h1>It Worked!!! </h1>
-              <h2>Again</h2>
-              <h3>Yup</h3>
+              <h1>Ludovic Migneault</h1>
             </animated.div>
           ))}
 
-        </div>
+        </animated.div>
 
       </header>
     </div>);
