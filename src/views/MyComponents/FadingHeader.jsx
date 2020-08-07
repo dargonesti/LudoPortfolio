@@ -25,13 +25,10 @@ const FadingHeader = ({ children, startDelay, style }) => {
       }, [entry.intersectionRatio, inView])*/
 
     return (
-        <>
-         
+        <>         
                 <div ref={ref}
                     style={{ position: "absolute", height: 50, top: 0, left: 0, width: 1, opacity: 0 }} />
-          
-
-            <div style={{position:"fixed", top: 10, right: 20, 
+            <div style={{position:"fixed", top: 0, right: 0, 
             transition: "opacity 0.3s", opacity: (inView ? 1 : 0)}} >
                 {children}
             </div>

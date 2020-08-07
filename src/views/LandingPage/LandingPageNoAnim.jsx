@@ -1,29 +1,24 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import impoHOC from "HoC/impoHOC.js";
 //config.default, gentle, wobbly, stiff, slow, molasses
-import { useSpring, useTransition, animated, interpolate, config } from 'react-spring';
-import { Keyframes } from 'react-spring/renderprops'
-// @material-ui/icons
 
-import AnimatedHeaderText from "../MyComponents/AnimatedHeaderText.jsx";
 import FadingHeader from "../MyComponents/FadingHeader.jsx";
 
 // Sections for this page
+
+import MainMenu from "../MyComponents/MainMenu.jsx";
 import SectionTests from "./Sections/SectionTests.jsx";
 
 //import bg1 from "assets/img/DSCF9114_4.jpg"; 
-import bg1 from "assets/img/3_XT208535.webp";
 import passingImg1 from "assets/img/PortraitsMoi/500/manoir.webp";
 import passingImg2 from "assets/img/PortraitsMoi/500/choice.webp";
 import stoppingImg1 from "assets/img/PortraitsMoi/500/potatoCrossed.webp";
 import stoppingImg2 from "assets/img/PortraitsMoi/500/cote1.webp";
 
-import delay from 'delay'
 import translatedTxt from 'texts/localization';
 //import myStyle from "assets/scss/index.scss";  
-import "../../main.scss"
-import "./landing.scss"
+import "scss/mainNoAnim.scss"
+import "./landingNoAnim.scss"
 
 ////////////USE Palette : https://coolors.co/30bced-303036-fffaff-fc5130-050401
 
@@ -43,10 +38,20 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
   let { classes, ...rest } = props;
   if (classes == null) classes = {};
 
-  let [showHeader1, setHeader1Shown] = useState(true)
-  let [introDone, setIntroDone] = useState(false)
 
   let titre = translatedTxt.landingTitre;
+
+  let imgWedding = ["3_XT034714.jpg", "2_XT034657.jpg", "3_XT034770 (1).jpg", "3_XT034778.jpg", "4_XT033079 (2).jpg", "5_XT033095 (2).jpg"]
+  let getWD = (i) => ("url(img/Wedding/" + imgWedding[i % imgWedding.length] + ")")
+
+  let imgPortrait = ["4_XT201199 (1).jpg", "5_DSCF5764 (1).jpg", "5_DSCF5807.jpg", "3_XT032214.webp"]
+  let getP = (i) => ("url(img/Portraits/" + imgPortrait[i % imgPortrait.length] + ")")
+
+  let imgNature = ["0_XT035256.jpg", "4_XT032371 (1).webp", "4_XT032376.webp", "5_XT032153.jpg", "DSCF9114_4.jpg"]
+  let getN = (i) => ("url(img/Nature/" + imgNature[i % imgNature.length] + ")")
+
+  let selfPortrait = ["4_XT031878.jpg", "3_XT031397.webp", "3_XT031376.jpg", "redBlueBall.jpg"]
+  let getSP = (i) => ("url(img/PortraitsMoi/" + selfPortrait[i % selfPortrait.length] + ")")
 
 
   useEffect(() => {
@@ -65,23 +70,23 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
         <div id="mainHeader" className={classes.container}  >
 
           <FadingHeader>
-            <h2 style={{ color: "white" }}>test</h2>
-            {showHeader1 &&
-              <h1 className={"initialName"} style={{ top: "50%", left: "50%", marginLeft: 0, transform: `translate( -50%, -50%)`, position: "fixed" }}>
-                <h1>{titre}</h1>
-              </h1>
-            }
+            <h1 className={"initialName"}>
+              {titre}
+            </h1>
+            <MainMenu />
           </FadingHeader>
 
-          <div id="main-">
-            <div id="iPhoto">
+          <div class="spacer" />
+
+          <div id="disciplines" >
+            <div id="iPhoto" style={{ backgroundImage: getP(2) }}>
               Photographie
               </div>
-            <div id="iVideo">
-              Vidéo
+            <div id="iVideo" style={{ backgroundImage: getWD(1) }}>
+            <div></div> <div>Vidéo</div>             
               </div>
-            <div id="iCode">
-              Code
+            <div id="iCode" style={{ backgroundImage: getSP(2) }}>
+              <div>Code</div> <div></div>    
               </div>
           </div>
 

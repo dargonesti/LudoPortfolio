@@ -10,7 +10,9 @@ import { StoreProvider } from './Data/ConfigStore'
 import { observer, useObserver } from 'mobx-react-lite';
 import { useStore } from './Data/ConfigStore';
 
-import "main.scss"
+import "scss/main.scss"
+//Check : https://www.youtube.com/watch?v=qm0IfG1GyZU for 10 x 1 line layout
+//https://1linelayouts.glitch.me/
  
 const minTimeImport = (target, minTime)=>lazy(() =>  Promise.all([
   target,

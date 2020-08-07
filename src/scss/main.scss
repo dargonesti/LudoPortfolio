@@ -1,0 +1,168 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+//Check : https://www.youtube.com/watch?v=qm0IfG1GyZU for 10 x 1 line layout
+//https://1linelayouts.glitch.me/
+
+body {
+  font-family: "Advent Pro";
+  /*font-family: "Raleway";*/
+  color: var(--font-color1);
+  background-color: var(--bg-color1);
+  /*background-color: #fab;*/
+
+  width: 100%;
+  text-align: center;
+
+  overflow-x: hidden;
+
+  background: linear-gradient(145deg, #0dc293, #0d8cc2);
+  
+
+  /*background-size: 400% 400%;
+  animation: AnimatedBG 6s ease infinite;*/
+  height: 5000px;
+}
+#root {
+  width: 100%;
+}
+
+i {
+  font-family: "initial";
+}
+
+a {
+  color: #eca3a3;
+  text-decoration: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0.5;
+}
+.overlayed {
+  position: relative;
+}
+
+#mainHeader {
+  color: black;
+  h1 {
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+  h4 {
+    font-size: 35px;
+    font-weight: 400;
+  }
+  a {
+    font-size: 25px;
+    font-weight: 600;
+    color: #121212;
+    letter-spacing: 4px;
+    border: 2px solid #121212; /*#fafafa;*/
+    border-radius: 10px;
+    margin: 20px 0 0 0;
+    padding: 7px 15px;
+  }
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.contentTest {
+  padding: 20px;
+}
+
+.links {
+  margin: 20px 15px;
+}
+
+#scrollPath {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 7px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+}
+#progressbar, #progressbar:before, #progressbar:after {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 7px;
+  height: 100%;
+  background: linear-gradient(to top, hsl(113,50%,70%), hsl(200,50%,70%));
+  animation: rotateHue 5s linear infinite;
+}
+/* IDK why it doesn't work
+#progressbar:before, #progressbar:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  filter:blur(30px);
+}
+#progressbar:after {
+  position: absolute;
+  filter:blur(30px);
+}*/
+
+@media (max-width: 1049px) {
+  .links {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1050px) {
+  .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+
+    a {
+      margin: 0 !important;
+    }
+  }
+}
+@media (min-width: 1400px) {
+  .links {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Lags on scroll, animate with Springs */
+@keyframes rotateHue {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes AnimatedBG {
+  0% {
+    background-position: 0% 14%;
+  }
+  50% {
+    background-position: 100% 87%;
+  }
+  100% {
+    background-position: 0% 14%;
+  }
+}
