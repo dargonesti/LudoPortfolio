@@ -204,8 +204,7 @@ body {
   overflow-x: hidden;
   background: linear-gradient(145deg, #0dc293, #0d8cc2);
   /*background-size: 400% 400%;
-  animation: AnimatedBG 6s ease infinite;*/
-  height: 5000px; }
+  animation: AnimatedBG 6s ease infinite;*/ }
 
 #root {
   width: 100%; }

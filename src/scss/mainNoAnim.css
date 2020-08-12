@@ -204,8 +204,7 @@ body {
   overflow-x: hidden;
   background: white;
   /*background-size: 400% 400%;
-  animation: AnimatedBG 6s ease infinite;*/
-  height: 5000px; }
+  animation: AnimatedBG 6s ease infinite;*/ }
 
 #root {
   width: 100%; }
