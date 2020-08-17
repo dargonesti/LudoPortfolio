@@ -37,11 +37,12 @@ const FadingHeader = ({ children, startDelay, style }) => {
 
             <nav className="nav">
                 <ul >
-                    <li ><a href="#"><span>01</span>About Natous</a></li>
-                    <li ><a href="#" ><span>02</span>Your benfits</a></li>
-                    <li ><a href="#" ><span>03</span>Popular tours</a></li>
-                    <li ><a href="#" ><span>04</span>Stories</a></li>
-                    <li ><a href="#" ><span>05</span>Book now</a></li>
+                <li><a target="_blank" href="https://www.facebook.com/ludovic.migneault" >Facebook</a></li>
+                <li><a target="_blank" href="https://instagram.com/ludovicmigneault" >Instagram</a></li>
+                <li><a target="_blank" href="https://unsplash.com/@dargonesti" >Unsplash</a></li>
+                <li><a target="_blank" href="https://medium.com/@ludovic.migneault" >Medium</a></li>
+                <li><a target="_blank" href="https://www.youtube.com/user/migneault62/" >Youtube</a></li>
+                <li><a target="_blank" href="https://dashboard.twitch.tv/u/dargonesti" >Twitch</a></li>
                 </ul>
             </nav>
         </div>

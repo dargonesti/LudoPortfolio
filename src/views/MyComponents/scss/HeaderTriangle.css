@@ -1,0 +1,112 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+:root {
+  --bg-color1: hsl(105, 100%, 86%);
+  --font-color1: rgb(28, 68, 16);
+  --bg-color2: hsl(109, 13%, 25%);
+  --font-color2: rgb(168, 223, 173);
+  --color-primary: #55c57a;
+  --color-primary-light: #7ed56f;
+  --color-primary-dark: #28b485;
+  --color-secondary-light: #ffb900;
+  --color-secondary-dark: #ff7730;
+  --color-tertiary-light: #2998ff;
+  --color-tertiary-dark: #5643fa;
+  --color-grey-light-1: #f7f7f7;
+  --color-grey-light-2: #eee;
+  --color-grey-dark: #777;
+  --color-grey-dark-2: #999;
+  --color-grey-dark-3: #333;
+  --color-white: #fff;
+  --color-black: #000; }
+
+#disciplines {
+  min-height: 100vh;
+  width: 100vw;
+  font-size: 32px;
+  background-image: linear-gradient(to right bottom, rgba(var(--color-primary-light), 0.8), rgba(var(--color-primary-dark), 0.8)), url(/assets/img/bg2.jpg);
+  position: relative; }
+  #disciplines > div {
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 50% 50%;
+    place-items: center;
+    background-size: cover;
+    color: white;
+    cursor: pointer; }
+    #disciplines > div#iPhoto {
+      clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
+      background-position: center;
+      height: 33%;
+      grid-template-columns: 100%;
+      z-index: 2; }
+      #disciplines > div#iPhoto:hover {
+        height: 50%; }
+      #disciplines > div#iPhoto.open {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        min-height: 100%; }
+      #disciplines > div#iPhoto::after {
+        background-image: linear-gradient(to left, rgba(0, 123, 234, 0.4), rgba(223, 12, 94, 0.4)); }
+    #disciplines > div#iVideo {
+      clip-path: polygon(0 0, 100% 33%, 100% 100%, 50% 50%);
+      background-position: center;
+      width: 50%; }
+      #disciplines > div#iVideo:hover {
+        clip-path: polygon(0 0, 100% 33%, 100% 100%, 0 100%); }
+      #disciplines > div#iVideo.open {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        min-height: 100%;
+        z-index: 123;
+        width: 100vw; }
+      #disciplines > div#iVideo::after {
+        background-image: linear-gradient(to right bottom, rgba(234, 234, 120, 0.2), rgba(88, 223, 88, 0.2)); }
+    #disciplines > div#iCode {
+      clip-path: polygon(100% 0, 50% 50%, 0% 100%, 0% 33%);
+      background-position: center;
+      width: 50%;
+      right: 0;
+      left: unset; }
+      #disciplines > div#iCode:hover {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 0% 33%); }
+      #disciplines > div#iCode.open {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 0% 0%);
+        z-index: 123;
+        min-height: 100%;
+        width: 100vw; }
+      #disciplines > div#iCode::after {
+        background-image: linear-gradient(to left bottom, rgba(0, 123, 234, 0.4), rgba(223, 12, 94, 0.3)); }
+    #disciplines > div::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      min-height: 100%;
+      transition: opacity 0.5s; }
+    #disciplines > div:hover::after {
+      opacity: 0; }
+    #disciplines > div:hover {
+      background-image: linear-gradient(to right bottom, #123, #abc); }
+    #disciplines > div > .content, #disciplines > div > div > .content {
+      display: none; }
+    #disciplines > div.open div.content {
+      display: block !important; }

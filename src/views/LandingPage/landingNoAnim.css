@@ -16,3 +16,8 @@
 
 #mainHeader .spacer {
   height: 10rem; }
+
+picture.fullWidth {
+  width: 100%; }
+  picture.fullWidth img {
+    width: 100%; }

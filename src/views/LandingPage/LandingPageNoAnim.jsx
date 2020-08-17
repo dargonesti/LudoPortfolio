@@ -73,6 +73,12 @@ const LandingPage = ({ loaded, showTests, ...props }) => {
           </FadingHeader>
         </div>
 
+<picture className="fullWidth">
+  <source media="(min-width:123)" srcSet="img/500/4_XT035854.webp" />
+  <source media="(min-width:650px)" srcSet="img/1920/4_XT035854-PS-2.webp" />
+  <img src="img/1920/4_XT035854-PS-2.jpg" alt="cosplay1" />
+</picture>
+
       </header>
     </div>);
 }
