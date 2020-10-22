@@ -1,65 +1,42 @@
-import React, { useEffect, useState, Suspense, lazy } from "react";
-import ReactDOM from "react-dom";
-import registerServiceWorker from "./registerServiceWorker";
-import LoadingPage from "./views/LoadingPage/LoadingPage.jsx";
-import bg1 from "assets/img/3_XT208535.webp"; 
-import LoadingRouterInsta from "LoadingRouter.jsx";
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
 
-import { StoreProvider } from './Data/ConfigStore'
-import { observer, useObserver } from 'mobx-react-lite';
-import { useStore } from './Data/ConfigStore';
+//For getting individual routes to work. 
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Router, Route, Link } from "react-router-dom";
 
-import "scss/main.scss"
-//Check : https://www.youtube.com/watch?v=qm0IfG1GyZU for 10 x 1 line layout
-//https://1linelayouts.glitch.me/
- 
-const minTimeImport = (target, minTime)=>lazy(() =>  Promise.all([
-  target,
-  new Promise(res => setTimeout(res, minTime || 0))
-])
-.then(([moduleExports]) => moduleExports)
-)
- 
-//const LoadingRouter = minTimeImport(import("LoadingRouter.jsx"), 1612); 
+//Material Design Bootstrap
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+import './lib/animate.min.css';
 
-console.log(process.env); 
+//Redux
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './components/Store/Reducer';
+const store = createStore(rootReducer);
 
-const MainRouter = (props) => {
-  let [imagesLoaded, setImagtesLoaded] = useState(false)
-  let [scrollpercent, setScrollpercent] = useState(0);
-  
-  /* TODO Scrollbar : 
-    progressHeight= 100* window.pageYOfset / totalH
-  progressbar.style.height = progressheight+"%"
-*/
-window.onscroll = ()=>{
-  console.log("scroll")
-  setScrollpercent(100*window.pageYOffset / (document.body.scrollHeight- window.innerHeight));
-}
+// document.body.style.zoom="80%";
+//HashHistory works for github pages but not on browser router with godaddy domain. 
+import createHashHistory from 'history/createHashHistory';
+const hashHistory = createHashHistory({ basename: process.env.PUBLIC_URL });
 
-  let myImg = <img src={bg1} style={{position:"absolute",  width:1, height:1 , opacity:0.01}} />;
-  return (
-    <div className="body">
-      <div id="scrollPath"></div>
-      <div id="progressbar" style={{height: scrollpercent + "%"}}></div>
-        <LoadingRouterInsta />
-      </div>);//*/
+ReactDOM.render(
+    <Provider store={store}>
+        <Router history={hashHistory}>
+            <Route component={App} />
+        </Router>
+    </Provider>,
+    document.getElementById('app'));
 
- /* return (
-    <div className="body">
-      <Suspense fallback={<LoadingPage />}>
-        {false && myImg}
-        <LoadingPage loaded /> 
-
-        <LoadingRouter />
-      </Suspense>
-      </div>);//*/
-  };
-  
-  ReactDOM.render(
-  <MainRouter />,
-      document.getElementById("root")
-    );
-    registerServiceWorker();
-    
+//Disable right click
+// document.oncontextmenu = function (e) {
+//     console.log(e.button);
+//     if (e.button == 2) {
+//         e.preventDefault();
+//         alert("Images are copy protected");
+//         return false;
+//     }
+// }

@@ -1,22 +1,40 @@
-# LudoPortfolio
- A React-ive website highly optimised showcasing Photos and Nice Code.
+# React Photography Portfolio
+> My Photography Portfolio. 
 
-# Ideas
+# Note Ludo 
+Code using Reduce and has a lot of repetition.
+Can't compile because of NavLink?
+Consider importing bits to main portfolio.
 
-##Design 
- Load screen mostly html/ css with barely any JS for super fast loading.
-	Loading page is the intro message more than a "laoding" state.
- Make most of it absolute and always animated/ moving
- Rotating Cube / Spider Graph with a category on each side / node.
-	Link to related images using tags? ( Type, Category, Subject, Person, Color, MetaData?... )
- Images are often zoomed in or out, showcasing quality more?
- Transition from photo to photo with transparency masks?
-	
-## Techno
- React
- LazyLoad
- Spring animations
- Customm animations on time, function and requestAnimationFrame
- Detect Wifi or 3g
- Let user chose for lighter version?
- 
+[Demo](https://ludovic.rocks)
+## Quick Start
+> Note: Images are private for my use only, therefore will not build without it. However the demo link will showcase the portfolio. 
+``` bash
+# Install dependencies
+npm install
+
+# Serve on localhost:3000
+npm start
+
+# Build for production
+npm run build
+```
+
+## Code Work Flow
+![Flow Diagram](https://www.dropbox.com/s/6l7tl4mvuh4dci7/Portfolio_Flowdiagram.png?raw=1)
+
+### Original Author
+
+Daniel Nguyen
+
+### Adaptation By
+
+Ludovic Migneault
+
+### Version
+
+1.1.0
+
+### License
+
+This project is licensed under the MIT License
