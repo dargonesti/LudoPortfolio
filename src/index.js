@@ -20,8 +20,7 @@ const store = createStore(rootReducer);
 
 // document.body.style.zoom="80%";
 //HashHistory works for github pages but not on browser router with godaddy domain. 
-import createHashHistory from 'history/createHashHistory';
-const hashHistory = createHashHistory({ basename: process.env.PUBLIC_URL });
+const hashHistory = require("history").createHashHistory({ basename: process.env.PUBLIC_URL });
 
 ReactDOM.render(
     <Provider store={store}>

@@ -21,13 +21,12 @@ function trackGA (link) {
     });
 }
 
-const CarouselItemTemplate = (props) => {
-    const {view} = props;
+const CarouselItemTemplate = ({view, url}) => {
     return (
         <CarouselItem itemId={view}>
             <View>
                 {/* <img id="view1" className="d-block w-100" src={require('../images/slider1.jpg')} alt="Second slide" /> */}
-                <div className={`view`+view}></div>
+                <div className={`view view`+view} style={{backgroundUrl:url}}></div>
                 <Mask className="d-flex justify-content-center align-items-center">
                     <Container className="mb-intro" >
                         <div>

@@ -107,36 +107,25 @@
 }
 
 #carouselIntro .view {
-	/* background-image: url('../../images/About_Page/about_header.jpg'); */
-	/* background-image: url('../../images/About_Page/home1.jpg'); */
-	/* background-image: url('../../images/About_Page/home2.jpg'); */
-	background-image: url('../../images/Backgrounds/Carousel-12.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 	height: 103vh;
 }
 
+
+#carouselIntro .view1 {
+	background-image: url('../../images/Backgrounds/Carousel-12.jpg');
+}
+
 #carouselIntro .view2 {
 	background-image: url('../../images/Backgrounds/Carousel-8.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
-	height: 103vh;
 }
 #carouselIntro .view3 {
 	background-image: url('../../images/Backgrounds/Carousel-10.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
-	height: 103vh;
 }
 #carouselIntro .view4 {
 	background-image: url('../../images/Backgrounds/Carousel-11.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
-	height: 103vh;
 }
 
 /* Navbar CSS */
@@ -1110,4 +1099,17 @@ button:hover {
 	/* border-bottom: 1px solid rgba(0, 0, 0, .1); */
 	margin: 2em 1em 0 1em;
 	padding: 2em 1em 0 1em;
+}
+
+
+
+
+
+/******
+ ORGANIZE ME! 
+ Ludo new code
+*******/
+.allign-vert{
+	display:grid;
+	align-content:center;
 }

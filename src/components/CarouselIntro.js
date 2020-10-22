@@ -14,6 +14,10 @@ import './css/App.css'
 // import FadeIn from 'react-fade-in';
 import CarouselItemTemplate from './CarouselItemTemplate'
 
+function bgImg(name){
+    return `../../images/Backgrounds/${name}`
+}
+
 class CarouselIntro extends React.Component {
     constructor(props) {
         super(props),
@@ -32,11 +36,10 @@ class CarouselIntro extends React.Component {
                     className="z-depth-1"
                     interval={7000}>
                     <CarouselInner>
-                        <CarouselItemTemplate view="1" />
-                        <CarouselItemTemplate view="2" />
-                        <CarouselItemTemplate view="3" />
-                        <CarouselItemTemplate view="4" />
-                        <CarouselItemTemplate view="5" />
+                        <CarouselItemTemplate view="2"  url={bgImg("Carousel-8.jpg")}/>
+                        <CarouselItemTemplate view="3" url={bgImg("Carousel-10.jpg")} />
+                        <CarouselItemTemplate view="4" url={bgImg("Carousel-11.jpg")} />
+                        <CarouselItemTemplate view="1" url={bgImg("Carousel-12.jpg")} />
                     </CarouselInner>
                 </Carousel>
 
