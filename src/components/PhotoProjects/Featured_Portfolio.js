@@ -38,74 +38,54 @@ for (var i = 1; i <= 46; i++) {
 }*/
 
 {/************************** People Data *************************/ }
-const peopleArray = [];
-const featPeople = [1,2,5,7,8,9,10,12,17,19,23,29,30];
-/*LUDO
-for (var i = 1; i <= 30; i++) {
-  const obj = {
-    src: require('../../images/Featured_Portfolio/People/People-' + i + '.jpg'),
-    thumbnail: require('../../images/Featured_Portfolio/People/People-' + i + '.jpg'),
-    caption: '',
-    category: ["ppl"]
-  }
-  if(featPeople.includes(i)){
-    obj['category'].push('*')
-  }
-  peopleArray.push(obj);
-}*/
-{/************************** Wedding Data *************************/ }
-const weddingArray = [];
-const featWedding = [1];//[1,4,10,12,13,15,20,27,28,40,45,47,49,50];
+let peopleArray = [];
+const featPeople = [1,29,4,15,18,16];
 
-for (var i = 1; i <= 1; i++) {
-  const obj = {
-    src: require('../../images/Weddings/3_XT034778 ' + i + '.jpg'),
-    thumbnail: require('../../images/Weddings/3_XT034778 ' + i + '.jpg'),
-    caption: '',
-    category: ["wed"]
-  }
-  if(featWedding.includes(i)){
-    obj['category'].push('*')
-  }
-  weddingArray.push(obj);
-}
+peopleArray = featPeople.map(n=>
+  ({
+    src: require('../../images/Portraits/' + n + '.jpg'),
+    thumbnail: require('../../images/Portraits/' + n + '.jpg'),
+    caption: 'Portrait in Chibougamau by Photographer Ludovic Migneault',
+    category: ["ppl", '*']
+  }))
+{/************************** Wedding Data *************************/ }
+let weddingArray = [];
+const featWedding = [9,10,12,13,14,8,5,6,18,3,4,2];//[1,4,10,12,13,15,20,27,28,40,45,47,49,50];
+
+weddingArray = featWedding.map(n=>
+  ({
+    src: require('../../images/Weddings/w' + n + '.jpg'),
+    thumbnail: require('../../images/Weddings/w' + n + '.jpg'),
+    caption: 'Wedding in Chibougamau by Photographer Ludovic Migneault',
+    category: ["wed", '*']
+  }))
 
 {/************************** Urban Data *************************/ }
-const urbanArray = [];
-const featUrban = [1,3,4,6,8,14,21,26,27,28,31,35];
-/*LUDO
-for (var i = 1; i <= 35; i++) {
-  const obj = {
-    src: require('../../images/Featured_Portfolio/Urban/Urban-' + i + '.jpg'),
-    thumbnail: require('../../images/Featured_Portfolio/Urban/Urban-' + i + '.jpg'),
-    caption: '',
-    category: ["urb"]
-  }
-  if(featUrban.includes(i)){
-    obj['category'].push('*')
-  }
-  urbanArray.push(obj);
-}*/
+let regionArray = [];
+const featRegion = [2,1,3,6,4,13,10,8,26,27,17,15,22,20,19,25,26,24];
+
+regionArray = featRegion.map(n=>
+  ({
+    src: require('../../images/Regions/' + n + '.jpg'),
+    thumbnail: require('../../images/Regions/' + n + '.jpg'),
+    caption: 'Nature and Cities of Québec by Photographer Ludovic Migneault',
+    category: ["region", '*']
+  }))
 
 {/************************** Concert Data *************************/ }
-const concertArray = [];
-const featConcert = [1];//[2,6,8,9,16,23,26,29,39,40,43,44];
-/*LUDO
-for (var i = 1; i <= 44; i++) {
-  const obj = {
-    src: require('../../images/Featured_Portfolio/Concert/Concert-' + i + '.jpg'),
-    thumbnail: require('../../images/Featured_Portfolio/Concert/Concert-' + i + '.jpg'),
-    caption: '',
-    category: ["concert"]
-  }
-  if(featConcert.includes(i)){
-    obj['category'].push('*')
-  }
-  concertArray.push(obj);
-}
-*/
+let productArray = [];
+let featProduct = [...Array(12).keys()];//[2,6,8,9,16,23,26,29,39,40,43,44];
+featProduct.shift();
+
+productArray = featProduct.map(n=>
+  ({
+    src: require('../../images/Products/' + n + '.jpg'),
+    thumbnail: require('../../images/Products/' + n + '.jpg'),
+    caption: 'Products by Photographer Ludovic Migneault',
+    category: ["products", '*']
+  }))
 {/*********************** Return Object Data ***********************/ }
-imageArray = [...shuffle(travelArray), ...shuffle(peopleArray), ...weddingArray, ...urbanArray, ...shuffle(concertArray)];
+imageArray = [...shuffle(travelArray), ...peopleArray, ...weddingArray, ...regionArray, ...productArray];
 // console.log("arrayIMages: " + JSON.stringify(imageArray))
 
 const projectData = {
