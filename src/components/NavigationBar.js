@@ -63,7 +63,7 @@ class NavigationBar extends React.Component {
             <div id="navigation">
                 <Navbar color="white" light expand="md" fixed="top" scrolling >
                     <NavbarBrand href="/" >
-                        <strong className="brand">Ludovic Migneault | Portfolio</strong>
+                        <strong className="brand">Ludovic Migneault | Photo</strong>
                        {/* <div><img style={{width:'10%', marginRight:" -11em"}} src={require('../images/logo.png')}/> </div>  */}
                     </NavbarBrand>
                     <NavbarToggler onClick={this.onClick} />

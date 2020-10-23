@@ -74,7 +74,7 @@ regionArray = featRegion.map(n=>
 
 {/************************** Concert Data *************************/ }
 let productArray = [];
-let featProduct = [...Array(12).keys()];//[2,6,8,9,16,23,26,29,39,40,43,44];
+let featProduct = [...Array(20).keys()];//[2,6,8,9,16,23,26,29,39,40,43,44];
 featProduct.shift();
 
 productArray = featProduct.map(n=>
