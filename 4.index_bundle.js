@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{488:function(e,a,t){"use strict";Object.defineProperty(a,"__esModule",{value:!0});var d={imageArray:[],projectHeader:{bgImage:t(498),title:"About Me",date:"",desc:""}};a.default=d},498:function(e,a,t){e.exports=t.p+"./assets/b10ae9de7ad248d1aff65948653859cc.webp"}}]);
