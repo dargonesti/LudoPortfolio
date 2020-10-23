@@ -31,7 +31,7 @@ const AboutPage = () => {
                 <Row className="border-bottom">
                     <Col lg="5">
                         <View className="rounded z-depth-4 mb-lg-0 mb-4 " hover waves>
-                            <img className="img-fluid" src={require("../images/About_Page/about6.jpg")} alt="Sample image" />
+                            <img className="img-fluid" src={require("../images/About_Page/desktop/about6.webp")} alt="Sample image" />
                             <a><Mask overlay="white-slight" /></a>
                         </View>
                     </Col>
@@ -89,7 +89,7 @@ const AboutPage = () => {
                     </Col>
                     <Col lg="5">
                         <View className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-                            <img className="img-fluid" src={require("../images/About_Page/about8.jpg")} alt="Sample image" />
+                            <img className="img-fluid" src={require("../images/About_Page/desktop/about8.webp")} alt="Sample image" />
                             <a><Mask overlay="white-slight" /></a>
                         </View>
                     </Col>
@@ -98,7 +98,7 @@ const AboutPage = () => {
                 <Row className="border-bottom-tech">
                     <Col lg="5">
                         <View className="rounded z-depth-4 mb-lg-0 mb-4 " hover waves>
-                            <img className="img-fluid"  src={require("../images/About_Page/about.jpg")} alt="Sample image" />
+                            <img className="img-fluid"  src={require("../images/About_Page/desktop/about.webp")} alt="Sample image" />
                             <a><Mask overlay="white-slight" /></a>
                         </View>
                     </Col>

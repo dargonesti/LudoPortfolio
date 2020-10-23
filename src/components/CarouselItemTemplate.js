@@ -26,7 +26,7 @@ const CarouselItemTemplate = ({view, url}) => {
         <CarouselItem itemId={view}>
             <View>
                 {/* <img id="view1" className="d-block w-100" src={require('../images/slider1.jpg')} alt="Second slide" /> */}
-                <div className={`view view`+view} style={{backgroundUrl:url}}></div>
+                <div className={`view view`+view} style={{backgroundImage:url}}></div>
                 <Mask className="d-flex justify-content-center align-items-center">
                     <Container className="mb-intro" >
                         <div>

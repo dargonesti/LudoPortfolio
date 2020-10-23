@@ -15,7 +15,7 @@ import './css/App.css'
 import CarouselItemTemplate from './CarouselItemTemplate'
 
 function bgImg(name){
-    return `../../images/Backgrounds/${name}`
+    return 'url(' + require(`../images/Backgrounds/${name}.webp`)+')'
 }
 
 class CarouselIntro extends React.Component {
@@ -36,10 +36,10 @@ class CarouselIntro extends React.Component {
                     className="z-depth-1"
                     interval={7000}>
                     <CarouselInner>
-                        <CarouselItemTemplate view="2"  url={bgImg("Carousel-8.jpg")}/>
-                        <CarouselItemTemplate view="3" url={bgImg("Carousel-10.jpg")} />
-                        <CarouselItemTemplate view="4" url={bgImg("Carousel-11.jpg")} />
-                        <CarouselItemTemplate view="1" url={bgImg("Carousel-12.jpg")} />
+                        <CarouselItemTemplate view="2"  url={bgImg("Carousel-8")}/>
+                        <CarouselItemTemplate view="3" url={bgImg("Carousel-10")} />
+                        <CarouselItemTemplate view="4" url={bgImg("Carousel-11")} />
+                        <CarouselItemTemplate view="1" url={bgImg("Carousel-12")} />
                     </CarouselInner>
                 </Carousel>
 

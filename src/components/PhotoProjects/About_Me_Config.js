@@ -6,7 +6,7 @@ Date:        Project:
 
 {/************************** Header Data *************************/ }
 const headerData = {
-  bgImage: require('../../images/About_Page/about_header.jpg'),
+  bgImage: require('../../images/About_Page/about_header.webp'),
   title: "About Me",
   date: "",
   desc: "",

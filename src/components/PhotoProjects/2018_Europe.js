@@ -9,7 +9,7 @@ import shuffle from '../configs/shuffle'
 
 {/************************** Header Data *************************/ }
 const headerData = {
-  bgImage: require('../../images/Products/1.jpg'),
+  bgImage: require('../../images/Products/1.webp'),
   title: "Europe 2018",
   date: "April 10 - May 7, 2018",
   desc: "Norway -> Germany -> Czech Republic -> Italy -> Croatia"
@@ -18,10 +18,10 @@ const headerData = {
 {/************************** Gallery Data *************************/ }
 const imageArray = [];
 
-for (var i = 6; i <= 6; i++) {
+for (var i = 1; i <= 6; i++) {
   const obj = {
-    src: require('../../images/Products/2.jpg'),
-    thumbnail: require('../../images/Products/2.jpg'),
+    src: require(`../../images/Products/${i}.webp`),
+    thumbnail: require(`../../images/Products/${i}.webp`),
     caption: '',
     category: ""
   }

@@ -75,5 +75,37 @@ const Routes = () => {
     // </BrowserRouter>
   );
 }
+/*
+import React, { Suspense, lazy } from "react";
+import { createHashHistory } from "history";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+// ******** ComponentRoutes ******** //
+const App = lazy(() => import("./App"))
+const Home = lazy(() => import('./Home'))
+import GalleryContainer from './GalleryContainer';
+const BlogPage = lazy(() => import('./BlogPage'))
+import AboutPage from './AboutPage'
+const TestPage = lazy(() => import('./TestPage'))
+import ProjectHeader from './Projects/ProjectHeader'
+const ProjectContainer = lazy(() => import('./Projects/ProjectContainer'))
+const ContactPage = lazy(() => import('./ContactPage'))
+const ContactCard = lazy(() => import('./ContactCard'))
+
+// ******** Project Routes ******** //
+const AllProjectsConfig = lazy(() => import('./PhotoProjects/All_Projects_Config'))
+const AboutMeConfig = lazy(() => import('./PhotoProjects/About_Me_Config'))
+const Wedding_Cbass_Becca = lazy(() => import('./PhotoProjects/08.05.18_Wedding_Cbass_Becca'))
+const Europe_2018 = lazy(() => import('./PhotoProjects/2018_Europe'))
+
+const Routes = () => {
+
+  // console.log("ROUTE: " + JSON.stringify(Laruen_Lychee.imageArray))
+  return (
+    // <BrowserRouter>
+    // Switch creates issues in routes, Fixes the issue of not rendering when url changes, maybe not anymore??
+    // <Switch>
+    <div>
+      <Suspense fallback={<div>Loading...</div>}></Suspense>
+//*/
 export default Routes;

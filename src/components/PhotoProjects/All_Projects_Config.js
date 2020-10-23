@@ -8,7 +8,7 @@ import { CONSTANT_TRAVEL,CONSTANT_WEDDING,CONSTANT_URBAN,CONSTANT_PEOPLE,CONSTAN
 
 {/************************** Header Data *************************/ }
 const headerData = {
-  bgImage: require('../../images/qwe2.jpg'),
+  bgImage: require('../../images/qwe2.webp'),
   title: "All Projects",
   date: "2017 - Present",
   desc: "Snapshots through the Years",
@@ -22,7 +22,7 @@ const imageArray = [
   {
     title: "Aymand + Amanda's Wedding",
     date: "January 2019",
-    coverImage: require('../../images/qwe1.jpg'),
+    coverImage: require('../../images/qwe1.webp'),
     link: "/wedding_ww2", 
     category: CONSTANT_WEDDING,
     bannerStyle: "light"
@@ -30,7 +30,7 @@ const imageArray = [
   {
     title: "Sister's Double Wedding",
     date: "December 2018",
-    coverImage: require('../../images/qwe3.jpg'),
+    coverImage: require('../../images/qwe3.webp'),
     link: "/wedding_ww", 
     category: CONSTANT_WEDDING,
     bannerStyle: "dark"

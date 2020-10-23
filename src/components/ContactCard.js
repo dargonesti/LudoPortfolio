@@ -9,8 +9,8 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 const ContactCard = () => {
     // console.log("*******Lazy Load*******");
-    const myPhoto = require("../images/Portraits/env1.jpg");
-    const SF_Image = require('../images/Regions/18.jpg');
+    const myPhoto = require("../images/Portraits/desktop/env1.webp");
+    const SF_Image = require('../images/Regions/desktop/18.webp');
 
     return (
         <div id="contactcard">

@@ -113,22 +113,7 @@
 	height: 103vh;
 }
 
-
-#carouselIntro .view1 {
-	background-image: url('../../images/Backgrounds/Carousel-12.jpg');
-}
-
-#carouselIntro .view2 {
-	background-image: url('../../images/Backgrounds/Carousel-8.jpg');
-}
-#carouselIntro .view3 {
-	background-image: url('../../images/Backgrounds/Carousel-10.jpg');
-}
-#carouselIntro .view4 {
-	background-image: url('../../images/Backgrounds/Carousel-11.jpg');
-}
-
-/* Navbar CSS */
+ /* Navbar CSS */
 
 #navigation h6 {
 	line-height: 1.7;
