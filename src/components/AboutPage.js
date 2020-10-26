@@ -22,9 +22,7 @@ const AboutPage = () => {
                 <p className="text-center w-responsive mx-auto ">
                     Welcome to my portfolio!
                     <br />
-                    I'm a photographer, hiker, and a software engineer.
-                       I was born in the Northern-Québec but lived a little in Québec and Montreal. I used to be captivated by video-games, but redirected that energy towards photography these last years. <br/>
-                       I'm a fan of Fantasy and Science-Fiction and I suggest you check my link to <a href="https://www.goodreads.com/user/show/43719355-ludovic-migneault" target="_blank">GoodReads</a> if you're bored and in search of a good story! 
+                    I'm a photographer, hiker.
                    </p>
                    <hr style={{width: "50%"}}/>
 
@@ -46,28 +44,24 @@ const AboutPage = () => {
                             Initially, I found my inspiration came from traveling around the world seeing different kinds of people, places, and things. As you can tell from my photos, I love colors.
                             <br />
                             <br />
-                            -- Open for shoots and collaborations! Feel free to email me for rates and more info at <strong><a className="email" href="mailto:ludovic.migneault@gmail.com"> ludovic.migneault@gmail.com</a></strong>
+                            -- Open for shoots and collaborations! Feel free to email me for rates and more info at <strong><a className="email" href="mailto:my.name@gmail.com"> my.name@gmail.com</a></strong>
                         </p>
 
                         <h4 className="tech-info"> My Camera Gear</h4>
                         <ul style={{ marginLeft: '1em' }}>
-                            {["Fujifilm X-T3 & X-T20", 
-                            "Dji Mavic Mini", 
-                            "Insta One X 360", 
-                            "35mm f/2", 
-                            "50-140mm f/2.8", 
-                            "18-55mm f/2.8-4"]
+                            {["Canon Rebel", 
+                            "Mavic Air2", 
+                            "50mm f/1.8", 
+                            "85mm f/1.8"]
                             .map(txt=><li className="camera-info-list" key={txt}>{txt}</li>)}
                         </ul>
                         
                         <h4 className="tech-info"> My Lights</h4>
                         <ul style={{ marginLeft: '1em' }}>
                             {["Goddox AD200", 
-                            "Goddox TT760", 
-                            "Goddox MC300", 
-                            "Neweer C-Stand", 
-                            "3' Octo-Softbox",
-                            "6' Umbrella"]
+                            "Aperture 300D", 
+                            "C-Stand", 
+                            "5' Softbox"]
                             .map(txt=><li className="camera-info-list" key={txt}>{txt}</li>)}
                            
                         </ul>
@@ -81,15 +75,15 @@ const AboutPage = () => {
                             <h6 className="font-weight-bold mb-3">
                                 <Fa icon="image" className="pr-2"></Fa>Lifestyle </h6>
                         </a> */}
-                        <h3 className="font-weight-bold mb-3 p-0">  <Fa icon="image" className="pr-2"></Fa><strong>Edits & Composites</strong></h3>
-                        <p> <i>Brigning stories to life!</i> <br />
-                        Be transported in a workd of Magic and Wonders!</p>
+                        <h3 className="font-weight-bold mb-3 p-0">  <Fa icon="image" className="pr-2"></Fa><strong>Edits</strong></h3>
+                        <p> <i>Get the body you always wanted!</i> <br />
+                        Only need a few hours of retouching!</p>
                        
 
                     </Col>
                     <Col lg="5">
                         <View className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-                            <img className="img-fluid" src={require("../images/About_Page/desktop/about8.webp")} alt="Sample image" />
+                            <img className="img-fluid" src={require("../images/About_Page/desktop/about7.webp")} alt="Sample image" />
                             <a><Mask overlay="white-slight" /></a>
                         </View>
                     </Col>
@@ -103,14 +97,7 @@ const AboutPage = () => {
                         </View>
                     </Col>
                     <Col lg="7">
-                        <h3 className="font-weight-bold mb-3 p-0 tech-title"><Fa icon="hand-spock-o" className=""></Fa> <strong>Software Engineer</strong></h3>
-                        <p>
-                            I'm a software engineer with 5 years experience in the industry. I graduated with a B.S. in Computer Science at the Université Laval, Québec.
-                            My expertise includes Frontend development with React and Angular, some Backend development in NodeJs and PHP, as well as Game Programing.
-                            <br />
-                        
-                            Github <a href="https://github.com/dargonesti" target="_blank"> Repo </a>
-                        </p>
+                     
 
                         <h4 className="tech-info"> This Portfolio was built with</h4>
                         <ul style={{ marginLeft: '1em' }}>

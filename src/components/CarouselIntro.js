@@ -36,10 +36,9 @@ class CarouselIntro extends React.Component {
                     className="z-depth-1"
                     interval={7000}>
                     <CarouselInner>
-                        <CarouselItemTemplate view="2"  url={bgImg("Carousel-8")}/>
-                        <CarouselItemTemplate view="3" url={bgImg("Carousel-10")} />
-                        <CarouselItemTemplate view="4" url={bgImg("Carousel-11")} />
-                        <CarouselItemTemplate view="1" url={bgImg("Carousel-12")} />
+                        <CarouselItemTemplate view="1" url={bgImg("Carousel-1")} />
+                        <CarouselItemTemplate view="2"  url={bgImg("Carousel-2")}/>
+                        <CarouselItemTemplate view="3" url={bgImg("Carousel-3")} />
                     </CarouselInner>
                 </Carousel>
 

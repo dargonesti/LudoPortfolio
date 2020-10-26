@@ -9,8 +9,8 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 const ContactCard = () => {
     // console.log("*******Lazy Load*******");
-    const myPhoto = require("../images/Portraits/desktop/env1.webp");
-    const SF_Image = require('../images/Regions/desktop/18.webp');
+    const myPhoto = require("../images/Portraits/desktop/2.webp");
+    const SF_Image = require('../images/Regions/desktop/1.webp');
 
     return (
         <div id="contactcard">
@@ -31,9 +31,9 @@ const ContactCard = () => {
                             </Col>
                             <Col lg="7" className="contactcard_width contactcard_padding_mobile contactcard_padding">
                                 <a className="green-text"><h4 className="font-weight-bold "><Fa icon="hand-spock-o" className="pr-2"></Fa>Hello!</h4></a>
-                                <h3 className="font-weight-bold  contactcard_title"><strong>Ludovic Migneault</strong></h3>
-                                <h5 className="contactcard_info"> <i className="fa fa-envelope"></i> <a href="mailto:ludovic.migneault@gmail.com"> Send me an Email</a></h5>
-                                <h5 className="contactcard_info"><i className="fa fa-at"></i> <strong> ludovicmigneault</strong></h5>
+                                <h3 className="font-weight-bold  contactcard_title"><strong>My Name</strong></h3>
+                                <h5 className="contactcard_info"> <i className="fa fa-envelope"></i> <a href="mailto:my.name@gmail.com"> Send me an Email</a></h5>
+                                <h5 className="contactcard_info"><i className="fa fa-at"></i> <strong> myname</strong></h5>
                                <hr className="hr-dark"/>
                                 {/* <div className="social-media">
                                     <a href="https://www.instagram.com/danielnuwin" className="btn-floating btn-lg btn-ins"><i className="fa fa-instagram fa-instagram-contact"></i></a>

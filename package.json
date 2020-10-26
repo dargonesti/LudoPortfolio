@@ -1,5 +1,5 @@
 {
-  "name": "LudoPortfolio",
+  "name": "PhotoPortfolio",
   "version": "1.1.0",
   "private": true,
   "description": "",
@@ -9,7 +9,7 @@
     "build": "webpack --mode production --history-api-fallback",
     "deploy": "npm run build && gh-pages -d dist"
   },
-  "homepage": "http://ludovic.rocks",
+  "homepage": "https://github.com/danielnuwin/React_Photography_Portfolio",
   "author": "Ludovic Migneault",
   "license": "MIT",
   "dependencies": {

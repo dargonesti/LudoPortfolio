@@ -18,7 +18,7 @@ const headerData = {
 {/************************** Gallery Data *************************/ }
 const imageArray = [];
 
-for (var i = 1; i <= 6; i++) {
+for (var i = 1; i <= 3; i++) {
   const obj = {
     src: require(`../../images/Products/${i}.webp`),
     thumbnail: require(`../../images/Products/${i}.webp`),

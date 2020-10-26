@@ -41,7 +41,7 @@ const CarouselItemTemplate = observer(({view, url}) => {
                                         <Col md="" className="mb-4 white-text text-center dark intro-container" style={{ border: "solid", backgroundColor: '#2715151f' }}>
                                             <div className="white-text text-center text-md-left col-md-6">
                                                 <div>
-                                                    <h4 className="display-4 intro-title" > Ludovic Migneault </h4>
+                                                    <h4 className="display-4 intro-title" > My Name </h4>
                                                     {/* <h3 className="display-5 intro-subtitle" > Photography </h3> */}
                                                     <h3 className="display-5 intro-subtitle" > {store.get("photography")} | {store.get("weddings")} | {store.get("tech")} </h3>
                                                 </div>

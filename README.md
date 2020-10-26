@@ -6,7 +6,7 @@ Code using Reduce and has a lot of repetition.
 Can't compile because of NavLink?
 Consider importing bits to main portfolio.
 
-[Demo](https://ludovic.rocks)
+[Demo](https://github.com/danielnuwin/React_Photography_Portfolio)
 ## Quick Start
 > Note: Images are private for my use only, therefore will not build without it. However the demo link will showcase the portfolio. 
 ``` bash

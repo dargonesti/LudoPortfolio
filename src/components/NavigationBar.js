@@ -38,7 +38,7 @@ const NavigationBar = observer((props) => {
         <div id="navigation">
             <Navbar color="white" light expand="md" fixed="top" scrolling >
                 <NavbarBrand href="/" >
-                    <strong className="brand">Ludovic Migneault | Photo</strong>
+                    <strong className="brand">My Name | Photo</strong>
                     {/* <div><img style={{width:'10%', marginRight:" -11em"}} src={require('../images/logo.png')}/> </div>  */}
                 </NavbarBrand>
                 <NavbarToggler onClick={onClick} />
@@ -55,7 +55,7 @@ const NavigationBar = observer((props) => {
                             <NavLink onClick={onClick} className="" to="/projects">{store.get("projects")}</NavLink>
                         </NavItem>
                         <NavItem>
-                            <a onClick={onClick} className="nav-link Ripple-parent" href="https://ludovicm.pixieset.com/prints" target="_blank">{store.get("prints")}</a>
+                            <a onClick={onClick} className="nav-link Ripple-parent" href="https://pixieset.com/prints" target="_blank">{store.get("prints")}</a>
                         </NavItem>
                         <NavItem>
                             <NavLink onClick={onClick} className="" to="/about">{store.get("about")}</NavLink>

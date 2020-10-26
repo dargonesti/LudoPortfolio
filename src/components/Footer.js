@@ -47,11 +47,11 @@ class FooterPage extends React.Component {
                 <hr/> */}
                 <div className="text-center">
                     <ul className="list-unstyled list-inline">
-                        <li className="list-inline-item"><a href="https://www.instagram.com/ludovicmigneault" className="btn-floating btn-lg btn-fb mx-1" target="_blank"><i className="fa fa-instagram"> </i></a></li>
+                        <li className="list-inline-item"><a href="https://www.instagram.com/myname" className="btn-floating btn-lg btn-fb mx-1" target="_blank"><i className="fa fa-instagram"> </i></a></li>
                          {/* <li className="list-inline-item"><a className="btn-floating btn-lg btn-fb mx-1" target="_blank"><i className="fa fa-facebook-official"> </i></a></li> */}
                         <li className="list-inline-item"><a className="btn-floating btn-lg btn-li mx-1" target="_blank"><i className="fa fa-linkedin"> </i></a></li>
-                        <li className="list-inline-item"><a href="https://github.com/dargonesti" className="btn-floating btn-lg btn-gh mx-1" target="_blank"><i className="fa fa-github"> </i></a></li>
-                        <li className="list-inline-item">  <a href="https://www.goodreads.com/user/show/43719355-ludovic-migneault" target="_blank"><i className="fa fa-google"> </i></a></li>
+                        <li className="list-inline-item"><a href="https://github.com/danielnuwin" className="btn-floating btn-lg btn-gh mx-1" target="_blank"><i className="fa fa-github"> </i></a></li>
+                        <li className="list-inline-item">  <a href="https://www.goodreads.com/" target="_blank"><i className="fa fa-google"> </i></a></li>
                       
                     </ul>
                 </div>

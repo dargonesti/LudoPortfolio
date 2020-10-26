@@ -30,10 +30,7 @@ var texts = [
         prefix: "about",
         sufix: "",
         texts: {
-            Welcome: [`Welcome to my site!
-    I'm a photographer, software engineer and hiker. I was born in the Northern-Québec move around Québec from time to time. I used to be captivated by video-games, but redirected that energy towards photography these last years.
-    I'm a fan of Fantasy and Science-Fiction and I suggest you check my link to 
-    GoodReads if you're bored and in search of a good story!`
+            Welcome: [`Welcome to my site!`
     ,
                 `Bienvenue sur mon site! Je suis un photographe, programmeur et randonneur. Je suis né dans le Nord-du-Québec mais sors visiter le reste du Québec de temps à autre.`],
 
