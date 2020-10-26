@@ -13,9 +13,8 @@
     
     "photography":["Photography","Photographie"],
     "weddings":["Weddings","Mariages"],
-    "tech":["Tech","Techno"],
-    "hom4e":["Home","Accueil"],
-    "ho5me":["Home","Accueil"]
+    "tech":["Tech","Techno"]
+
 
   },
   "contact":{
@@ -23,5 +22,14 @@
   },
   "TODO":{
     "ADD":["MORE","TEXT","ETC."]
+  },
+
+  "about":{
+    "welcome":["Welcome to my site!",
+
+    "Bienvenue sur mon site! Je suis un photographe, programmeur et randonneur. Je suis né dans le Nord-du-Québec mais sors visiter le reste du Québec de temps à autre."],
+    "photogTitle":["Tech","Techno"],
+    "photogText":["Tech","Techno"],
+    "myGearTitle":["Tech","Techno"]
   }
 }

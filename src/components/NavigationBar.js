@@ -72,7 +72,7 @@ const NavigationBar = observer((props) => {
                         <NavItem >
                             <FormInline waves>
                                 <div className="md-form my-0">
-                                    <input className="form-control mr-sm-2" type="text" placeholder={store.get("prints")} aria-label={store.get("search")} />
+                                    <input className="form-control mr-sm-2" type="text" placeholder={store.get("search")} aria-label={store.get("search")} />
                                 </div>
                             </FormInline>
                         </NavItem>
