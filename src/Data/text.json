@@ -1,0 +1,27 @@
+{
+  "general":{
+    
+    "lan":["fr","en"],
+    "contact":["Contact", "Contact"],
+    "about":["About me","À propos"],
+    "portfolio":["Portfolio","Portfolio"],
+    "projects":["Projects","Projets"],
+    "prints":["Prints","Impressions"],
+    "search":["Search","Chercher"],
+    "home":["Home","Accueil"],
+
+    
+    "photography":["Photography","Photographie"],
+    "weddings":["Weddings","Mariages"],
+    "tech":["Tech","Techno"],
+    "hom4e":["Home","Accueil"],
+    "ho5me":["Home","Accueil"]
+
+  },
+  "contact":{
+    "email":["email","courriel"]
+  },
+  "TODO":{
+    "ADD":["MORE","TEXT","ETC."]
+  }
+}

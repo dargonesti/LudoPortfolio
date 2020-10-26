@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, withRouter, Redirect } from "react-router-dom";
 import {
     Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Container, FormInline,
@@ -16,97 +16,78 @@ import ProjectHeader from './Projects/ProjectHeader'
 import ProjectContainer from './Projects/ProjectContainer'
 import Routes from './Routes'
 
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../Data/ConfigStore';
+
 // ******** Project Routes ******** //
 
-class NavigationBar extends React.Component {
-    constructor(props) {
-        super(props),
-            this.state = {
-                collapse: false,
-                showFullNav: true
-            }
-        this.onClick = this.onClick.bind(this);
+const NavigationBar = observer((props) => {
+    const store = useStore();
+    let [collapse, setCollapse] = useState(false)
+    let [showFullNav, setFullNav] = useState(true)
+    console.log(store);
+
+    const onClick = () => {
+        setCollapse(!collapse);
     }
 
-    onClick() {
-        this.setState({
-            collapse: !this.state.collapse,
-        });
+    const overlay = <div id="sidenav-overlay" style={{ backgroundColor: 'transparent' }} onClick={props.handleNavbarClick} />
 
-        // if (this.props.location.pathname === '/') {
-        //     window.scroll({
-        //         top: 0,
-        //         behavior: "smooth"
-        //     });
-        // }
-        // if(this.props.location.pathname !== '/'){
-        //     console.log("redirect");
-        //     <Redirect to='/about'/>
-        // }
+    return (
+        // <Router>
+        <div id="navigation">
+            <Navbar color="white" light expand="md" fixed="top" scrolling >
+                <NavbarBrand href="/" >
+                    <strong className="brand">Ludovic Migneault | Photo</strong>
+                    {/* <div><img style={{width:'10%', marginRight:" -11em"}} src={require('../images/logo.png')}/> </div>  */}
+                </NavbarBrand>
+                <NavbarToggler onClick={onClick} />
+                <Collapse isOpen={collapse} navbar>
+                    <NavbarNav left>
+                        <NavItem>
+                            {/* <NavLink className="brand" to="/">Home</NavLink> */}
+                            <NavLink onClick={onClick} className="" to="/">{store.get("home")}</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <AnchorLink offset={() => 0} onClick={onClick} className="nav-link" href='#headerbox'>{store.get("portfolio")}</AnchorLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink onClick={onClick} className="" to="/projects">{store.get("projects")}</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <a onClick={onClick} className="nav-link Ripple-parent" href="https://ludovicm.pixieset.com/prints" target="_blank">{store.get("prints")}</a>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink onClick={onClick} className="" to="/about">{store.get("about")}</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            {/* <NavLink onClick={this.onClick} className="" to="/blog">Blog</NavLink> */}
+                        </NavItem>
+                        <NavItem>
+                            {/* <NavLink onClick={this.onClick} className="" to="/testpage">Test Page</NavLink> */}
+                            {/* <NavLink onClick={this.onClick} className="" to="/contactcard">ContactCard</NavLink> */}
+                        </NavItem>
+                    </NavbarNav>
+                    <NavbarNav right>
+                        <NavItem >
+                            <FormInline waves>
+                                <div className="md-form my-0">
+                                    <input className="form-control mr-sm-2" type="text" placeholder={store.get("prints")} aria-label={store.get("search")} />
+                                </div>
+                            </FormInline>
+                        </NavItem>
+                        <NavItem >
+                            <NavLink onClick={store.toggleLanguage} className="" to="#">{store.get("lan")}</NavLink>
+                        </NavItem>
+                    </NavbarNav>
+                </Collapse>
+            </Navbar>
 
-//         <BrowserRouter >
-//     <Switch>
-//       <Route path="/items/:id" component={EditPage} />
-//       <Route exact path="/items" component={MainPage} />          
-//       <Route path="/yourReactComp" component={YourReactComp} />
-//       <Route exact path="/" render={() => (<Redirect to="/items" />)} />          
-//       <Route path="*" component={NoMatch} />          
-//     </Switch>
-//   </BrowserRouter>
-    }
+            {collapse && overlay}
+        </div>
+        // </Router>
+    );
 
-    render() {
-        const overlay = <div id="sidenav-overlay" style={{ backgroundColor: 'transparent' }} onClick={this.handleNavbarClick} />
-
-        return (
-            // <Router>
-            <div id="navigation">
-                <Navbar color="white" light expand="md" fixed="top" scrolling >
-                    <NavbarBrand href="/" >
-                        <strong className="brand">Ludovic Migneault | Photo</strong>
-                       {/* <div><img style={{width:'10%', marginRight:" -11em"}} src={require('../images/logo.png')}/> </div>  */}
-                    </NavbarBrand>
-                    <NavbarToggler onClick={this.onClick} />
-                    <Collapse isOpen={this.state.collapse} navbar>
-                        <NavbarNav left>
-                            <NavItem>
-                                {/* <NavLink className="brand" to="/">Home</NavLink> */}
-                                <NavLink onClick={this.onClick} className="" to="/">Home</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <AnchorLink offset={() => 0} onClick={this.onClick} className="nav-link" href='#headerbox'>Portfolio</AnchorLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink onClick={this.onClick} className="" to="/projects">Projects</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink onClick={this.onClick} className="" to="/about">About Me</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                {/* <NavLink onClick={this.onClick} className="" to="/blog">Blog</NavLink> */}
-                            </NavItem>
-                            <NavItem>
-                                {/* <NavLink onClick={this.onClick} className="" to="/testpage">Test Page</NavLink> */}
-                                {/* <NavLink onClick={this.onClick} className="" to="/contactcard">ContactCard</NavLink> */}
-                            </NavItem>
-                        </NavbarNav>
-                        <NavbarNav right>
-                            <NavItem >
-                                <FormInline waves>
-                                    <div className="md-form my-0">
-                                        <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-                                    </div>
-                                </FormInline>
-                            </NavItem>
-                        </NavbarNav>
-                    </Collapse>
-                </Navbar>
-
-                {this.state.collapse && overlay}
-            </div>
-            // </Router>
-        );
-    }
-};
+})
 
 export default withRouter(NavigationBar);

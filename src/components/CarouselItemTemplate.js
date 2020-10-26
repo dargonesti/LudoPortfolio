@@ -14,6 +14,9 @@ import FadeIn from 'react-fade-in';
 
 import ReactGA from 'react-ga';
 
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../Data/ConfigStore';
+
 function trackGA (link) {
     ReactGA.event({
         category: 'Clicked: ' + link,
@@ -21,7 +24,9 @@ function trackGA (link) {
     });
 }
 
-const CarouselItemTemplate = ({view, url}) => {
+const CarouselItemTemplate = observer(({view, url}) => {
+    let store = useStore()
+
     return (
         <CarouselItem itemId={view}>
             <View>
@@ -38,19 +43,19 @@ const CarouselItemTemplate = ({view, url}) => {
                                                 <div>
                                                     <h4 className="display-4 intro-title" > Ludovic Migneault </h4>
                                                     {/* <h3 className="display-5 intro-subtitle" > Photography </h3> */}
-                                                    <h3 className="display-5 intro-subtitle" > Photography | Weddings | Tech </h3>
+                                                    <h3 className="display-5 intro-subtitle" > {store.get("photography")} | {store.get("weddings")} | {store.get("tech")} </h3>
                                                 </div>
                                                 <hr className="hr-light" />
                                                 {/* <h6 className="mb-4 display-6 text-center" style={{ color: 'black', fontWeight: "400" }}> “Embrace the unknown for which it will eventually bring you to where you need to be”</h6> */}
                                                 <AnchorLink href='#headerbox'>
-                                                    <Button color="white" onClick={() => trackGA('Portfolio_Anchor')}>Portfolio</Button>
+                                                    <Button color="white" onClick={() => trackGA('Portfolio_Anchor')}>{store.get("portfolio")}</Button>
                                                 </AnchorLink>
                                                 <Link to="/projects">
-                                                    <Button outline color="white" onClick={() => trackGA('Projects_Anchor')}> Projects</Button>
+                                                    <Button outline color="white" onClick={() => trackGA('Projects_Anchor')}> {store.get("projects")}</Button>
                                                 </Link>
                                                 {/* <AnchorLink href='#contactcard'> */}
                                                 <AnchorLink href='#footer_anchor'>
-                                                    <Button color="red" onClick={() => trackGA('Contact_Anchor')}> Contact </Button>
+                                                    <Button color="red" onClick={() => trackGA('Contact_Anchor')}> {store.get("contact")} </Button>
                                                 </AnchorLink>
                                             </div>
                                         </Col>
@@ -71,5 +76,5 @@ const CarouselItemTemplate = ({view, url}) => {
             </CarouselCaption>
         </CarouselItem>
     );
-}
+})
 export default CarouselItemTemplate;
